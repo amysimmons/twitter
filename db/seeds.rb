@@ -5,10 +5,10 @@ t1 = Tweet.create(:content => 'Leadership spill will be held on Tuesday')
 t2 = Tweet.create(:content => 'First project is super stressful')
 t3 = Tweet.create(:content => 'Pop music is the best')
 
-u1  = User.create(:name => 'Amy')
-u2  = User.create(:name => 'Julia')
-u3  = User.create(:name => 'Liam')
-admin = User.create(:name => 'admin')
+u1  = User.create(:name => 'Amy', :password => 'chicken', :password_confirmation => 'chicken')
+u2  = User.create(:name => 'Julia', :password => 'chicken', :password_confirmation => 'chicken')
+u3  = User.create(:name => 'Liam', :password => 'chicken', :password_confirmation => 'chicken')
+admin = User.create(:name => 'admin', :password => 'chicken', :password_confirmation => 'chicken')
 
 #associate tweets and users
 t1.user = u1
