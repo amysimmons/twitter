@@ -23,6 +23,11 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find params[:id]
+  end
+
+  def show_user
+    @user = User.find_by username: params[:username]
   end
 
   def update
