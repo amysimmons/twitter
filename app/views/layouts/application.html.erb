@@ -8,7 +8,17 @@
 </head>
 <body>
 
-<%= yield %>
+<h1>Welcome <%=@current_user.try(:name)%></h1>
+
+<nav>
+    <ul>
+        <%== nav_menu %>
+        <!-- #calling the menu helper -->
+    </ul>
+</nav>
+<div class="container">
+    <%= yield %>
+</div>
 
 </body>
 </html>

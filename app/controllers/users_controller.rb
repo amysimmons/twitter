@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     # this will create a new user with this parameters but it won't save them in the database
     # first i want to see if their passwords match
     if @user.save  
+        session[:user_id] = @user.id
         redirect_to root_path
     else
         render :new

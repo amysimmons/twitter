@@ -11,8 +11,8 @@
 #  organisation    :string
 #  user_location   :string
 #  profile_pic     :text
-#  is_news         :boolean
-#  is_admin        :boolean
+#  is_news         :boolean          default("false")
+#  is_admin        :boolean          default("false")
 #  created_at      :datetime
 #  updated_at      :datetime
 #
