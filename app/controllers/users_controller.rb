@@ -9,7 +9,8 @@ class UsersController < ApplicationController
     # first i want to see if their passwords match
     if @user.save  
         session[:username] = @user.username
-        redirect_to :controller => 'users', :action => 'show_user', :username => @user.username
+        # redirect_to :controller => 'users', :action => 'show_user', :username => @user.username
+        redirect_to root_path
     else
         render :new
     end
