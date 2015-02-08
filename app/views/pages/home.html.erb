@@ -1,10 +1,37 @@
 
-<i class='fa fa-twitter'></i>
+<% if session[:username].present? %>
 
-<h1>Welcome to Twitter</h1>
+    <h1>My dashboard</h1>
 
-<%=render :partial => '/session/new_session'%>
+    <div class="newsfeed">
+        <nav>
+            <ul>
+                <li><a href="/news">News</a></li>
+                <li><a href="/all">All</a></li>
+                <li><a href="/mentions">Mentions</a></li>
+            </ul>
+        </nav>
+    
+        <%show_news_tweets%>
 
-<%=render :partial => 'users/new_user_form'%>
+        <%show_all_tweets%>
+
+        <%show_mentions%>
+        
+    </div>
+
+<% else %>
+
+    <h1>Welcome to Twitter</h1>
+
+    <div clas="login">
+        <%=render :partial => '/session/new_session'%>
+    </div>
+
+    <div class="signup">
+        <%=render :partial => 'users/new_user_form'%>
+    </div>
+ 
+<% end %>
 
 
