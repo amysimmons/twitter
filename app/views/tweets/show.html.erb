@@ -1,2 +1,7 @@
 <h1>Tweets#show</h1>
-<p>Find me in app/views/tweets/show.html.erb</p>
+
+
+<p class="tweet-author"><%=@tweet.user_id%></p>
+<p class="tweet-content"><%=@tweet.content%></p>
+
+<%= button_to 'Delete tweet', @tweet, :method => 'delete', :data => {:confirm => "Are you sure?"}%>

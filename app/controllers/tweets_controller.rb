@@ -29,6 +29,9 @@ class TweetsController < ApplicationController
   end
 
   def destroy
+    tweet = Tweet.find params[:id]
+    tweet.delete
+    # redirect_to works_path
   end
 
   def tweet_params
