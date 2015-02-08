@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     # this will create a new user with this parameters but it won't save them in the database
     # first i want to see if their passwords match
     if @user.save  
-        session[:user_id] = @user.id
+        session[:username] = @user.username
         redirect_to :controller => 'users', :action => 'show_user', :username => @user.username
     else
         render :new
@@ -20,6 +20,11 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find_by username: params[:username]
+  end
+
+    def edit_user
+    @user = User.find_by username: params[:username]
   end
 
   def show
@@ -29,6 +34,8 @@ class UsersController < ApplicationController
   def show_user
     @user = User.find_by username: params[:username]
   end
+
+
 
   def update
   end

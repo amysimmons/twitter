@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'
 
-  get '/:username' => 'users#show_user'
+  get '/:username' => 'users#show_user', :as => 'username'
+
+  get '/:username/edit' => 'users#edit_user', :as => 'username_edit'
+
+  # get '/:username/delete' => 'users#show_user'
 
 end

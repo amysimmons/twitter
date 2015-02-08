@@ -5,12 +5,18 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate 
 
+
   private 
   def authenticate 
-    if session[:user_id].present?
-        @current_user = User.find_by :id => session[:user_id]
+    if session[:username].present?
+        @current_user = User.find_by :username => session[:username]
+
+        # @current_user = User.find_by :username => session[:username]
+        # @user = User.new
+        # @username = User.find_by :username => session[:username]
+
     end
-    session[:user_id] = nil unless @current_user.present?
+    session[:username] = nil unless @current_user.present?
   end
   #set up a variable with user in it if we can find the user in the database
 end
