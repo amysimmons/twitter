@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     @user = User.find_by username: params[:username]
   end
 
-    def edit_user
+  def edit_user
     @user = User.find_by username: params[:username]
   end
 
@@ -38,6 +38,13 @@ class UsersController < ApplicationController
 
 
   def update
+  end
+
+  def update_user
+    user = User.find_by username: params[:username]
+    # user = User.find params[:username]
+    user.update user_params
+    redirect_to username_path
   end
 
   def destroy

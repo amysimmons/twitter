@@ -3,16 +3,10 @@
 <head>
   <title>Twitter</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <link href="css/font-awesome.css" rel="stylesheet">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-
-<i class="fa fa-twitter"></i>
-<h1>Welcome <%=@current_user.try(:username)%></h1>
-
 <nav>
     <ul>
         <%== nav_menu %>

@@ -1,1 +1,15 @@
-<h1>hello <%=@user.name%></h1>
+<div class="user-profile">
+    <%= image_tag @user.profile_pic, :class => 'profile' %>
+    <h1><%=@user.name.capitalize%></h1>
+        <ul>
+            <li>@<%=@user.username%></li>
+            <li>Tweets: </li>
+            <li>Followers: </li>
+            <li>Following: </li>
+            <li>Organisation: <%=@user.organisation%></li>
+            <li><%=@user.bio%></li>
+            <li>Location: <%=@user.user_location%></li>
+            <li>Joined: <%=@user.created_at%></li>
+        </ul>
+</div>
+

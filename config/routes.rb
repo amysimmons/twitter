@@ -13,6 +13,9 @@ Rails.application.routes.draw do
 
   get '/:username/edit' => 'users#edit_user', :as => 'username_edit'
 
+  patch '/:username/update' => 'users#update_user', :as => 'username_update'
+
+
   # get '/:username/delete' => 'users#show_user'
 
 end
