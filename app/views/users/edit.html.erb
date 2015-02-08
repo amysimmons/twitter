@@ -1,2 +1,41 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<h1>Edito profile</h1>
+
+<% if @user.errors.any? %>
+    <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+            <li><%=msg%></li> 
+        <%end%>
+    </ul>
+<%end%>
+
+
+<%= form_for @user do |f| %>
+
+    <div>
+        <%= f.label :organisation%>
+        <%= f.text_field :organisation %>
+    </div>
+
+
+    <div>
+        <%= f.label :user_location%>
+        <%= f.text_field :user_location %>
+    </div>
+
+
+    <div>
+        <%= f.label :bio, "Short bio" %>
+        <%= f.text_area :bio %>
+    </div>
+
+
+    <div>
+        <%= f.label :profile_pic, "Profile picture" %>
+        <%= f.url_field :profile_pic %> 
+    </div>
+
+    <div>
+        <%= f.submit "Sign up" %>
+    </div>
+
+<% end %>
