@@ -12,7 +12,7 @@ module ApplicationHelper
 
 
 
-            links = "<li>#{link_to('@' + @current_user.username, username_path(@current_user))}</li>"
+            links = "<li>#{link_to('@' + @current_user.username, username_path(@current_user.username))}</li>"
             links += "<li>#{ link_to('New tweet ', new_tweet_path)}</li>"
             links += "<li>#{ link_to('Edit profile ', username_edit_path(@current_user.username))}</li>"
             links += "<li>#{ link_to('Delete account ')}</li>"
