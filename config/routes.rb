@@ -15,6 +15,10 @@ Rails.application.routes.draw do
 
   patch '/:username/update' => 'users#update_user', :as => 'username_update'
 
+  get '/:username/newsfeed' => 'tweets#newsfeeed', :as => 'username_newsfeed'
+
+  # get '/:username/newsfeed' => 'tweets#newsfeeed', :as => 'username_newsfeed'
+
 
   # get '/:username/delete' => 'users#show_user'
 

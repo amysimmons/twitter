@@ -34,6 +34,18 @@ class TweetsController < ApplicationController
     # redirect_to works_path
   end
 
+  def news
+      puts "hello world"
+  end
+
+  def all
+      puts "hello world"
+  end
+
+  def mentions
+      puts "hello world"
+  end
+
   def tweet_params
     params.require(:tweet).permit(:content, :tweet_location, :in_reply_to)
   end
