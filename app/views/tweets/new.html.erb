@@ -2,7 +2,11 @@
 
 <% @tweet = @tweet || Tweet.new %>
 
-<%= form_for @tweet do |f| %>
+
+
+<%= form_for @tweet, {:url => '/tweets', :action => :create } do |f| %>
+
+
 
     <div>
         <%= f.label :content%>

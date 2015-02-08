@@ -1,10 +1,17 @@
 class TweetsController < ApplicationController
   def index
+    @tweets = Tweet.all
   end
 
   def create
-      tweet = Tweet.new tweet_params
-      redirect_to username_path
+      
+      # raise params.inspect
+      @user = User.find_by username: params[:username]
+      # redirect_to username_path
+      session[:username] = @user.username
+      
+    tweet = Tweet.create tweet_params
+    redirect_to :controller => 'users', :action => 'show_user', :username => @current_user.username
   end
 
   def new
