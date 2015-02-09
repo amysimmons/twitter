@@ -57,7 +57,8 @@ class TweetsController < ApplicationController
 
   def mentions
     # redirect_to root_path
-    @tweets = Tweet.mentions
+
+    @tweets = Tweet.mentions(@current_user)
     render 'newsfeed'
 
   end

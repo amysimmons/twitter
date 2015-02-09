@@ -22,16 +22,16 @@ class Tweet < ActiveRecord::Base
         Tweet.all.select { |t| t.is_news }
     end
 
-    def mention
-        self.content.include? @current_user.username
+    def mention(user)
+         self.content.include? user.username
     end
 
-    def self.mentions
-
+    def self.mentions(user)
+        Tweet.all.select { |t| t.mention(user) }
     end
 end
 
 
-# when i have no self in is_news that method refers to a single tweets
+# when i have no self in is_news that method refers to a single tweet
 #     but when i have self in the method name, that method refers to the class
 #     which encapsulates all tweets
