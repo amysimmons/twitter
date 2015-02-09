@@ -33,9 +33,9 @@ class TweetsController < ApplicationController
     # redirect_to works_path
   end
 
-  def newsfeed
-    @tweets = Tweet.all
-  end
+  # def newsfeed
+  #   @tweets = Tweet.all
+  # end
 
   def news
 
@@ -51,11 +51,13 @@ class TweetsController < ApplicationController
   def all
     # redirect_to root_path
     @tweets = Tweet.all
+    # binding.pry
     render 'newsfeed'
   end
 
   def mentions
     # redirect_to root_path
+    @tweets = Tweet.mentions
     render 'newsfeed'
 
   end

@@ -21,6 +21,14 @@ class Tweet < ActiveRecord::Base
     def self.news
         Tweet.all.select { |t| t.is_news }
     end
+
+    def mention
+        self.content.include? @current_user.username
+    end
+
+    def self.mentions
+
+    end
 end
 
 
