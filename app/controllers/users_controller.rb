@@ -34,6 +34,7 @@ class UsersController < ApplicationController
 
   def show_user
     @user = User.find_by username: params[:username]
+    @tweets = @user.tweets
   end
 
   def update
@@ -53,7 +54,10 @@ class UsersController < ApplicationController
   end
 
   def tweets
+
+    @tweets = @current_user.tweets
     render 'userfeed'
+
   end
 
   def following 
