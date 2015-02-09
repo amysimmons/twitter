@@ -1,0 +1,19 @@
+<div class="following-followers">
+
+    <% @users.each do |user| %>
+    
+        <div>
+            <% if user.profile_pic %>
+            <%= image_tag user.profile_pic, :class => 'profile' %>
+        <%end%>
+        </div>
+        <div>
+            <%=user.name.capitalize%>
+        </div>
+        <div>
+           <%=user.username%> 
+        </div>
+
+    <% end %>
+
+</div>

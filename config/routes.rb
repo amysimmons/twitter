@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   resources :tweets
   resources :users
+  resources :relationships, only: [:create, :destroy]
+
 
   root :to => 'pages#home'
 
@@ -30,6 +32,9 @@ Rails.application.routes.draw do
 
   get '/:username/followers' => 'users#followers', :as => 'username_followers'
 
+  patch '/:username/following' => 'users#following'
+
   # get '/:username/delete' => 'users#show_user'
+
 
 end

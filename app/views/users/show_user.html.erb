@@ -16,14 +16,46 @@
 <div class="user-feed">
     <nav>
         <ul>
+            <% @user ||= @current_user %>
+            <!-- this does nothing when @user is not nil (as on a profile page), but when it is (as on the Home page) it sets @user to the current user. -->
+
             <li><%=link_to('Tweets', username_tweets_path(@user.username))%></li>
             <li><%=link_to('Following', username_following_path(@user.username))%></li>
+            <%= @user.following.count %>
             <li><%=link_to('Followers', username_followers_path(@user.username))%></li>
-            <%if @user != @current_user%>
-                <button class="follow-button">Follow</button>
+            <%= @user.followers.count %>
+
+
+            <%if @current_user.following?(@user) %>
+
+                <%= form_for @user, {:url => username_following_path, :action => :unfollow } do |f| %>
+
+                <div>
+                    <%= f.submit "Unfollow", :class => "unfollow-button" %>
+                </div>
+
+                <% end %>
+
+
+            <%else%>
+
+                <%= form_for @user, {:url => username_following_path, :action => :follow } do |f| %>
+
+                <div>
+                    <%= f.submit "Follow", :class => "Follow-button" %>
+                </div>
+
+                <% end %>
+
             <%end%>
+
         </ul>
     </nav>
 
     <%=render :partial => 'users/userfeed'%>
 </div>
+
+
+
+
+

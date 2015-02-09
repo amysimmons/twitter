@@ -1,0 +1,38 @@
+
+                  
+                <%= form_for @user, {:url => username_following_path, :action => :unfollow } do |f| %>
+
+                    <div>
+                        <%= f.submit "Unfollow", :class => "unfollow-button" %>
+                    </div>
+                  
+
+                <% end %>
+        <%= form_for @user, {:url => username_following_path, :action => :follow } do |f| %>
+
+                    <div>
+                        <%= f.submit "Follow", :class => "Follow-button" %>
+                    </div>
+
+                <% end %>
+
+
+
+
+
+
+                            <%if @current_user.following?(@user) %>
+
+                <%= form_for @current_user.active_relationships.build, {:url => username_following_path, :action => :unfollow } do |f| %>
+                    <div><%= hidden_field_tag :followed_id, @user.id %></div>
+                    <%= f.submit "Follow", class: "btn btn-primary" %>
+                <% end %>
+
+
+            <%else%>
+
+                 <%= form_for @current_user.active_relationships.find_by(followed_id: @user.id), {:url => username_following_path, :action => :follow, html: { method: :delete } do |f| %>
+                <%= f.submit "Unfollow", class: "btn" %>
+    
+            <%end%>
+
