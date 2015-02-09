@@ -5,13 +5,12 @@ class TweetsController < ApplicationController
 
   def create
 
-    @user = User.find_by username: params[:username]
-    session[:username] = @user.username
+    #@user = User.find_by username: params[:username]
+    #session[:username] = @user.username
     tweet = Tweet.create tweet_params
-    redirect_to :controller => 'users', :action => 'show_user', :username => @current_user.username
 
     tweet.update(:user_id => @current_user.id)
-
+    redirect_to "/#{@current_user.username}" #:controller => 'users', :action => 'show_user', :username => @current_user.username
   end
 
   def new
@@ -32,6 +31,33 @@ class TweetsController < ApplicationController
     tweet = Tweet.find params[:id]
     tweet.delete
     # redirect_to works_path
+  end
+
+  def newsfeed
+    @tweets = Tweet.all
+  end
+
+  def news
+
+    # redirect_to root_path
+    # @tweets = Tweet.all
+    # @tweet = Tweet.find params[:user_id]
+    
+    @tweets = Tweet.news
+    render 'newsfeed'
+
+  end
+
+  def all
+    # redirect_to root_path
+    @tweets = Tweet.all
+    render 'newsfeed'
+  end
+
+  def mentions
+    # redirect_to root_path
+    render 'newsfeed'
+
   end
 
   def tweet_params

@@ -12,3 +12,15 @@
             <li>Joined: <%=@user.created_at%></li>
         </ul>
 </div>
+
+  <div class="user-feed">
+        <nav>
+            <ul>
+                <li><%=link_to('Tweets', username_tweets_path(@user.username))%></li>
+                <li><%=link_to('Following', username_following_path(@user.username))%></li>
+                <li><%=link_to('Followers', username_followers_path(@user.username))%></li>
+            </ul>
+        </nav>
+    
+        <%=render :partial => 'users/userfeed'%>
+    </div>

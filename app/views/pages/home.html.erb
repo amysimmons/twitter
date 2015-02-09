@@ -1,23 +1,18 @@
 
-<% if session[:username].present? %>
+<% if @current_user.present? %>
 
     <h1>My dashboard</h1>
 
     <div class="newsfeed">
         <nav>
             <ul>
-                <li><a href="/news">News</a></li>
-                <li><a href="/all">All</a></li>
-                <li><a href="/mentions">Mentions</a></li>
+                <li><%=link_to('News', username_news_path(@current_user.username))%></li>
+                <li><%=link_to('All', username_all_path(@current_user.username))%></li>
+                <li><%=link_to('Mentions', username_mentions_path(@current_user.username))%></li>
             </ul>
         </nav>
     
-        <%show_news_tweets%>
-
-        <%show_all_tweets%>
-
-        <%show_mentions%>
-        
+        <%=render :partial => 'tweets/newsfeed'%>
     </div>
 
 <% else %>

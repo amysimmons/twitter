@@ -52,6 +52,18 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def tweets
+    render 'userfeed'
+  end
+
+  def following 
+    render 'userfeed'
+  end
+
+  def followers 
+    render 'userfeed'
+  end
+
   private
     def user_params
         params.require(:user).permit(:name, :email, :username, :bio, :organisation, :user_location, :profile_pic, :is_news, :is_admin, :password, :password_confirmation)
