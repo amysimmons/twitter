@@ -1,20 +1,22 @@
-<h1>New tweet</h1>
+<div class="new-tweet">
 
-<% @tweet = @tweet || Tweet.new %>
+    <h1>Compose new Tweet</h1>
+
+    <% @tweet = @tweet || Tweet.new %>
+
+    <%= form_for @tweet, {:url => '/tweets', :action => :create } do |f| %>
+
+        <div class="new-tweet-content-container">
+            <%= f.text_field :content, :autofocus => true, :required => true, :class => "new-tweet-content", :maxlength => 140%>   
+        </div>
+
+        <div class="new-tweet-counter-button">
+            <div class="new-tweet-counter">140</div>
+            <%= f.submit "Tweet", :class => "new-tweet-button"%>
+        </div>
+
+    <% end %>
+
+</div>
 
 
-
-<%= form_for @tweet, {:url => '/tweets', :action => :create } do |f| %>
-
-
-
-    <div>
-        <%= f.label :content%>
-        <%= f.text_field :content, :autofocus => true, :required => true%>   
-    </div>
-
-    <div>
-        <%= f.submit "Tweet" %>
-    </div>
-
-<% end %>
