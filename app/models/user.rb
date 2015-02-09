@@ -36,7 +36,6 @@ class User < ActiveRecord::Base
     validates :username, :presence => true, :uniqueness => true
     validates :email, :presence => true, :uniqueness => true
 
-
     # Follows a user.
     def follow(other_user)
     active_relationships.create(followed_id: other_user.id)
@@ -51,6 +50,7 @@ class User < ActiveRecord::Base
     def following?(other_user)
     following.include?(other_user)
     end
+
 end
 
 # Since destroying a user should also destroy that user’s relationships, 
