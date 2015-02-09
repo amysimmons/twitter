@@ -1,0 +1,11 @@
+<h1>userfeed</h1>
+
+<%@tweets.each do |tweet|%>
+    <% if tweet.user %>
+    <p class="tweet-author"><%=link_to tweet.user.username, username_path(tweet.user.username) %></p>
+    <p class="tweet-content"><%=tweet.content%></p>
+    <%end%>
+
+<%end%>
+
+

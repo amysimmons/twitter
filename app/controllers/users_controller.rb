@@ -34,6 +34,7 @@ class UsersController < ApplicationController
 
   def show_user
     @user = User.find_by username: params[:username]
+    @tweets = @user.tweets
   end
 
   def update
@@ -50,6 +51,21 @@ class UsersController < ApplicationController
     user = User.find params[:id]
     user.delete
     redirect_to root_path
+  end
+
+  def tweets
+
+    @tweets = @current_user.tweets
+    render 'userfeed'
+
+  end
+
+  def following 
+    render 'userfeed'
+  end
+
+  def followers 
+    render 'userfeed'
   end
 
   private

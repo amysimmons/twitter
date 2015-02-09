@@ -13,10 +13,17 @@
         </ul>
 </div>
 
-<div class="user-container">
-    <ul>
-        <li><a href="/tweets">Tweets</a></li>
-        <li><a href="/following">Following</a></li>
-        <li><a href="/followers">Followers</a></li>
-    </ul>
+<div class="user-feed">
+    <nav>
+        <ul>
+            <li><%=link_to('Tweets', username_tweets_path(@user.username))%></li>
+            <li><%=link_to('Following', username_following_path(@user.username))%></li>
+            <li><%=link_to('Followers', username_followers_path(@user.username))%></li>
+            <%if @user != @current_user%>
+                <button class="follow-button">Follow</button>
+            <%end%>
+        </ul>
+    </nav>
+
+    <%=render :partial => 'users/userfeed'%>
 </div>

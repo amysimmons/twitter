@@ -37,3 +37,74 @@ nav li a {
 
 nav li a:hover {
     color: #0084B4;
+}
+
+.new-tweet {
+    width: 70%;
+    background-color: #e5f2f7;
+    border-radius: 6px;
+}
+
+.new-tweet h1 {
+   /* border-bottom: solid 1px rgba(0, 132, 180, .25)
+    width: 100%;*/
+    text-align: center;
+    color: #8899a6;
+    font-size: 24px;
+
+}
+
+.new-tweet {
+    padding: 10px;
+    /*margin: 10px;*/
+    margin: 50px auto;
+}
+
+.new-tweet-content {
+    width: 100%;
+    height: 80px;
+    font-size: 20px;
+    margin: auto;
+    border-radius: 6px;
+    border: solid 1px rgba(0, 132, 180, .25);
+}
+
+.new-tweet-content-container {
+    margin: auto;
+    width: 90%;
+}
+
+.new-tweet-content input {
+    margin: auto;
+}
+
+.new-tweet-button {
+    width: 100px;
+    height: 50px;
+    background-color: #0084B4;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 6px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: solid 1px rgba(0, 132, 180, .25);
+    display: inline-block;
+
+}
+
+.new-tweet-counter {
+    width: ;
+    color: #8899a6;
+    display: inline-block;
+}
+
+.new-tweet-counter-button {
+    margin: auto;
+}
+
+
+
+
+
+
+
