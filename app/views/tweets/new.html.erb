@@ -11,12 +11,21 @@
         </div>
 
         <div class="new-tweet-counter-button">
-            <div class="new-tweet-counter">140</div>
+            <div class="new-tweet-counter"></div>
             <%= f.submit "Tweet", :class => "new-tweet-button"%>
         </div>
 
     <% end %>
 
 </div>
+
+
+<script>
+$(document).ready(function() {
+    // updateCountdown();
+    // $('.new-tweet-content').change(updateCountdown);
+    $('.new-tweet-content').keyup(updateCountdown);
+});
+</script>
 
 

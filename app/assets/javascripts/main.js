@@ -1,4 +1,9 @@
 
+
+
+
+// $('.message').on('input', function()
+
 function updateCountdown() {
     // 140 is the max message length
 
@@ -12,10 +17,6 @@ function updateCountdown() {
 
 }
 
-$(document).ready(function($) {
-    updateCountdown();
-    $('.new-tweet-content').change(updateCountdown);
-    $('.new-tweet-content').keyup(updateCountdown);
-});
+
 
 
