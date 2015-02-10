@@ -32,7 +32,7 @@ Rails.application.routes.draw do
 
   get '/:username/followers' => 'users#followers', :as => 'username_followers'
 
-  patch '/:username/following' => 'users#following'
+  patch '/:username' => 'users#show_user'
 
   # get '/:username/delete' => 'users#show_user'
 
