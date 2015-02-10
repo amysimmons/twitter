@@ -47,7 +47,7 @@ class TweetsController < ApplicationController
         @newstweets = Tweet.news
         @tweets = []
         @newstweets.each do |tweet|
-            if @current_user.following.include? tweet.user
+            if @current_user.following.include?(tweet.user)
                 @tweets << tweet
             end
         end
@@ -58,13 +58,13 @@ class TweetsController < ApplicationController
 
   def all
     # redirect_to root_path
-     @alltweets = Tweet.news
-        @tweets = []
-        @alltweets.each do |tweet|
-            if @current_user.following.include? tweet.user
-                @tweets << tweet
-            end
-        end
+      @alltweets = Tweet.news
+      @tweets = []
+      @alltweets.each do |tweet|
+          if @current_user.following.include?(tweet.user)
+              @tweets << tweet
+          end
+      end
     # binding.pry
     render 'newsfeed'
   end

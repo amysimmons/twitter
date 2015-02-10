@@ -7,7 +7,7 @@ class PagesController < ApplicationController
         @newstweets = Tweet.news
         @tweets = []
         @newstweets.each do |tweet|
-            if @current_user.following.include? tweet.user
+            if @current_user.present? && @current_user.following.include?(tweet.user)
                 @tweets << tweet
             end
         end
