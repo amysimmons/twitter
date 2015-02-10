@@ -36,6 +36,8 @@ gem 'rails_12factor', :group => :production
 
 gem "font-awesome-rails"
 
+gem 'geocoder'
+
 group :development do
     gem 'pry-rails'
     gem 'pry-stack_explorer'

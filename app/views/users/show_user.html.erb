@@ -8,9 +8,12 @@
             <li>Following: </li>
             <li>Organisation: <%=@user.organisation%></li>
             <li><%=@user.bio%></li>
-            <li>Location: <%=@user.user_location%></li>
-            <li>Joined: <%=@user.created_at%></li>
+            <li>Location: <%=request.location %></li>
+            <li>Joined: <%=@user.created_at.strftime('%B, %Y')%></li>
+
         </ul>
+    <li><%=link_to('Edit profile ', username_edit_path(@current_user.username))%></li>
+    <%= button_to 'Delete account', @user, :method => 'delete', :data => {:confirm => "Are you sure?"}%>
 </div>
 
 <div class="user-feed">

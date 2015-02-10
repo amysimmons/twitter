@@ -14,6 +14,8 @@
 class Tweet < ActiveRecord::Base
     belongs_to :user
     
+  
+    
     def is_news
         self.user.present? && self.user.is_news
     end

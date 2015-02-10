@@ -72,6 +72,14 @@ class UsersController < ApplicationController
     render 'following_followers'
   end
 
+  def location
+    
+    @ip_address = request.location
+    @list = Geocoder.search @ip_address
+    @city = @list.first.city
+
+  end
+
   private
     def user_params
         params.require(:user).permit(:name, :email, :username, :bio, :organisation, :user_location, :profile_pic, :is_news, :is_admin, :password, :password_confirmation)
