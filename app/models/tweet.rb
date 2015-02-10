@@ -29,6 +29,11 @@ class Tweet < ActiveRecord::Base
     def self.mentions(user)
         Tweet.all.select { |t| t.mention(user) }
     end
+
+    def is_following
+        @current_user.following
+    end
+
 end
 
 
