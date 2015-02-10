@@ -74,7 +74,7 @@ class UsersController < ApplicationController
 
   def location
     
-    @ip_address = request.location
+    @ip_address = request.remote_ip
     @list = Geocoder.search @ip_address
     @city = @list.first.city
 
