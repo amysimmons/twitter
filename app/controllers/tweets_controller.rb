@@ -44,16 +44,13 @@ class TweetsController < ApplicationController
     # @tweets = Tweet.all
     # @tweet = Tweet.find params[:user_id]
     
-     @tweets = Tweet.news
-
-      @tweets.each do |tweet|
-
-      if @current_user.following.include? tweet.user
+        @newstweets = Tweet.news
         @tweets = []
-        @tweets << tweet
-      end
-
-    end
+        @newstweets.each do |tweet|
+            if @current_user.following.include? tweet.user
+                @tweets << tweet
+            end
+        end
 
     render 'newsfeed'
 
@@ -61,16 +58,13 @@ class TweetsController < ApplicationController
 
   def all
     # redirect_to root_path
-    @tweets = Tweet.all
-
-    @tweets.each do |tweet|
-
-      if @current_user.following.include? tweet.user
+     @alltweets = Tweet.news
         @tweets = []
-        @tweets << tweet
-      end
-
-    end
+        @alltweets.each do |tweet|
+            if @current_user.following.include? tweet.user
+                @tweets << tweet
+            end
+        end
     # binding.pry
     render 'newsfeed'
   end
