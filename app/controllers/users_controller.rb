@@ -35,6 +35,11 @@ class UsersController < ApplicationController
   def show_user
     @user = User.find_by username: params[:username]
     @tweets = @user.tweets
+
+    @ip_address = request.remote_ip
+    @list = Geocoder.search @ip_address
+    @city = @list.first.city
+
   end
 
   def update
@@ -70,14 +75,6 @@ class UsersController < ApplicationController
     @user = User.find_by username: params[:username]
     @users = @user.followers
     render 'following_followers'
-  end
-
-  def location
-    
-    @ip_address = request.remote_ip
-    @list = Geocoder.search @ip_address
-    @city = @list.first.city
-
   end
 
   private
