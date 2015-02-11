@@ -69,11 +69,10 @@ class UsersController < ApplicationController
 
   def tweets
     @user = User.find_by :username => params[:username]
-    @tweets = @current_user.tweets
+    @tweets = @user.tweets
     render 'userfeed'
 
   end
-
 
   def following 
     @user = User.find_by username: params[:username]
@@ -87,10 +86,9 @@ class UsersController < ApplicationController
     render 'following_followers'
   end
 
-
   private
     def user_params
-        params.require(:user).permit(:name, :email, :username, :bio, :organisation, :user_location, :profile_pic, :is_news, :is_admin, :password, :password_confirmation)
+        params.require(:user).permit(:name, :email, :username, :bio, :organisation, :user_location, :profile_pic, :is_news, :remote_profile_pic_url, :is_admin, :password, :password_confirmation)
     end
 
     def check_if_admin

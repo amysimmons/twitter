@@ -5,7 +5,7 @@ t1 = Tweet.create(:content => 'Leadership spill will be held on Tuesday')
 t2 = Tweet.create(:content => 'First project is super stressful')
 t3 = Tweet.create(:content => 'Pop music is the best')
 
-u1  = User.create(:name => 'Amy', :username => 'amesimmons', :email => 'amy@amy.com', :password => 'chicken', :password_confirmation => 'chicken')
+u1  = User.create(:name => 'Amy', :username => 'amesimmons', :email => 'amy@amy.com', :password => 'chicken', :password_confirmation => 'chicken', :remote_profile_pic_url => '')
 u2  = User.create(:name => 'Julia', :username => 'juliaryan', :email => 'julia@julia.com', :password => 'chicken', :password_confirmation => 'chicken')
 u3  = User.create(:name => 'Liam', :username => 'liamdarmody', :email => 'liam@liam.com', :password => 'chicken', :password_confirmation => 'chicken')
 admin = User.create(:name => 'admin', :username => 'admin', :email => 'admin@admin.com', :password => 'chicken', :password_confirmation => 'chicken', :is_admin => true)

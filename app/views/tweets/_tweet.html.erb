@@ -11,7 +11,7 @@
         <button><i class="fa fa-reply"></i></button>
     <% end %>
 
-    <%= form_tag username_retweet_path(@current_user.username) do %>
+    <%= form_tag username_retweet_path(@current_user.username, tweet) do %>
         <button><i class="fa fa-retweet"></i></button>
     <% end %>
 

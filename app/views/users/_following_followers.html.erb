@@ -4,7 +4,7 @@
     
         <div>
             <% if user.profile_pic %>
-                <%= image_tag user.profile_pic, :class => 'profile' %>
+                <%= image_tag user.profile_pic_url(:medium), :class => 'profile' %>
             <%end%>
         </div>
         <div>
