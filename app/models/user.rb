@@ -2,19 +2,20 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  name            :string
-#  email           :string
-#  username        :string
-#  password_digest :string
-#  bio             :text
-#  organisation    :string
-#  user_location   :string
-#  profile_pic     :text
-#  is_news         :boolean          default("false")
-#  is_admin        :boolean          default("false")
-#  created_at      :datetime
-#  updated_at      :datetime
+#  id               :integer          not null, primary key
+#  name             :string
+#  email            :string
+#  username         :string
+#  password_digest  :string
+#  bio              :text
+#  organisation     :string
+#  user_location    :string
+#  profile_pic      :text
+#  is_news          :boolean          default("false")
+#  is_admin         :boolean          default("false")
+#  created_at       :datetime
+#  updated_at       :datetime
+#  original_user_id :integer
 #
 
 class User < ActiveRecord::Base

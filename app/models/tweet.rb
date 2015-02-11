@@ -13,7 +13,7 @@
 
 class Tweet < ActiveRecord::Base
     belongs_to :user
-    
+    belongs_to :original_tweet, :foreign_key => :original_tweet_id, :class_name => 'Tweet'    
   
     
     def is_news

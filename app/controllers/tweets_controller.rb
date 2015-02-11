@@ -85,15 +85,28 @@ class TweetsController < ApplicationController
 
   def retweet
 
-    # pass the id 
-    # get the tweet , get the contents , get the user, create a new tweet
-    # rt + 
-    # pass the id of the original tweet
+    @original_tweet = Tweet.find params[:id]
 
-    # redirect_to username_tweets_path
+    @retweet = Tweet.new
+
+    @retweet.user_id = @current_user.id
+    @retweet.content = @original_tweet.content
+
+    @retweet.original_tweet_id = @original_tweet.id
+
+    @retweet.save
+
+    redirect_to username_path
+
   end
 
   def favourite
+
+  end
+
+  private
+
+  def retweet_params
 
   end
 

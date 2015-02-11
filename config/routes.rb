@@ -34,13 +34,13 @@ Rails.application.routes.draw do
 
   get '/:username/followers' => 'users#followers', :as => 'username_followers'
 
-  get '/:username/retweet' => 'tweets#retweet', :as => 'username_retweet'
+  get '/:username/retweet/:id' => 'tweets#retweet', :as => 'username_retweet'
 
   get '/:username/reply' => 'tweets#reply', :as => 'username_reply'
 
   get '/:username/favourite' => 'tweets#favourite', :as => 'username_favourite'
 
-  post '/:username/retweet' => 'tweets#retweet'
+  post '/:username/retweet/:id' => 'tweets#retweet'
 
   post '/:username/reply' => 'tweets#reply'
 
