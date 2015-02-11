@@ -30,7 +30,7 @@ class TweetsController < ApplicationController
   def destroy
     tweet = Tweet.find params[:id]
     tweet.delete
-    # redirect_to works_path
+    redirect_to root_path
   end
 
   # def newsfeed
@@ -76,6 +76,28 @@ class TweetsController < ApplicationController
     render 'newsfeed'
 
   end
+
+
+  def reply
+    @tweet = "RT: " + tweet.content
+    redirect_to username_tweets_path
+  end
+
+  def retweet
+
+    tweet = Tweet.new
+    tweet = Tweet.create tweet_params
+    tweet.update(:user_id => @current_user.id)
+    redirect_to
+
+    redirect_to username_tweets_path
+  end
+
+  def favourite
+  end
+
+
+
 
   def tweet_params
     params.require(:tweet).permit(:content, :tweet_location, :in_reply_to)

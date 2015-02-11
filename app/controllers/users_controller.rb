@@ -65,6 +65,7 @@ class UsersController < ApplicationController
 
   end
 
+
   def following 
     @user = User.find_by username: params[:username]
     @users = @user.following
@@ -76,6 +77,7 @@ class UsersController < ApplicationController
     @users = @user.followers
     render 'following_followers'
   end
+
 
   private
     def user_params

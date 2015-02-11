@@ -1,5 +1,5 @@
 <div class="user-profile">
-    <%= image_tag @user.profile_pic, :class => 'profile' %>
+    <%=image_tag @user.profile_pic_url(:medium), :class => 'profile'%>
     <h1><%=@user.name.capitalize%></h1>
         <ul>
             <li>@<%=@user.username%></li>
@@ -10,10 +10,11 @@
             <li><%=@user.bio%></li>
             <li>Location: <%=@city%></li>
             <li>Joined: <%=@user.created_at.strftime('%B, %Y')%></li>
-
         </ul>
-    <li><%=link_to('Edit profile ', username_edit_path(@current_user.username))%></li>
-    <%= button_to 'Delete account', @user, :method => 'delete', :data => {:confirm => "Are you sure?"}%>
+            <%if @current_user.id == @user.id %>
+            <li><%=link_to('Edit profile ', username_edit_path(@current_user.username))%></li>
+        <%= button_to 'Delete account', @user, :method => 'delete', :data => {:confirm => "Are you sure?"}%>
+            <%end%>
 </div>
 
 <div class="user-feed">
@@ -29,7 +30,7 @@
             <%= @user.followers.count %>
 
 
-            <%if @current_user.following?(@user) %>
+            <% if @current_user.following?(@user) %>
 
             <%= form_for(@current_user.active_relationships.find_by(followed_id: @user.id),
                          html: { method: :delete }) do |f| %>

@@ -50,11 +50,15 @@
         <%= f.text_area :bio %>
     </div>
 
+    <p>
+        <%= f.label :profile_pic, "Profile picture"%>
+        <%= f.file_field :profile_pic %>
+    </p>
 
-    <div>
-        <%= f.label :profile_pic, "Profile picture" %>
-        <%= f.url_field :profile_pic %> 
-    </div>
+    <p>
+        <%= f.label :url %>
+        <%= f.text_field :remote_profile_pic_url %>
+    </p>
 
     <div>
         <%= f.submit "Update profile" %>
