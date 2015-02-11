@@ -86,6 +86,19 @@ class UsersController < ApplicationController
     render 'following_followers'
   end
 
+  def favourites
+
+    @total = []
+
+    @user.tweets.each do |tweet|
+      @favourited_by_list = tweet.favourited_by
+      @total << @favourited_by_list
+    end
+
+    @total_favourites = @total.flatten.length
+    
+  end
+
   private
     def user_params
         params.require(:user).permit(:name, :email, :username, :bio, :organisation, :user_location, :profile_pic, :is_news, :remote_profile_pic_url, :is_admin, :password, :password_confirmation)

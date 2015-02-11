@@ -13,9 +13,13 @@
 #
 
 class Tweet < ActiveRecord::Base
+
     belongs_to :user
     belongs_to :original_tweet, :foreign_key => :original_tweet_id, :class_name => 'Tweet'    
   
+    # Favorited by users
+    has_many :favourite_tweets # just the 'relationships'
+    has_many :favourited_by, through: :favourite_tweets, source: :user # the actual users favoriting a recipe
     
     def is_news
         self.user.present? && self.user.is_news

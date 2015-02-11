@@ -100,16 +100,34 @@ class TweetsController < ApplicationController
 
   end
 
+  # Add and remove favourite tweets
+  # for current_user
   def favourite
-    @favourited_tweet = Tweet.find params[:id]
 
+    @tweet = Tweet.find params[:id]
+
+    type = params[:type]
+    if type == "favourite"
+      @current_user.favourites << @tweet
+      # redirect_to :back, notice: 'You favourited #{@tweet.username}'
+      redirect_to root_path
+
+    elsif type == "unfavourite"
+      @current_user.favourites.delete(@tweet)
+      # redirect_to :back, notice: 'Unfavourited #{@tweet.username}'
+      redirect_to root_path
+
+    else
+      # Type missing, nothing happens
+      # redirect_to :back, notice: 'Nothing happened.'
+      redirect_to root_path
+    end
+
+    raise params.inspect    
   end
+
 
   private
-
-  def retweet_params
-
-  end
 
   def tweet_params
     params.require(:tweet).permit(:content, :tweet_location, :in_reply_to)

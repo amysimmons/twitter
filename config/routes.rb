@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   resources :users
   resources :relationships, only: [:create, :destroy]
 
+  # This will add a favorite_tweet_path(@recipe) url helper for our view.
+  resources :tweets do
+    put :favourite, on: :member
+  end
 
   root :to => 'pages#home'
 
@@ -34,17 +38,23 @@ Rails.application.routes.draw do
 
   get '/:username/followers' => 'users#followers', :as => 'username_followers'
 
+  get '/:username/favourite/:id' => 'tweets#favourite', :as => 'username_favourite'
+
+  put '/:username/favourite/:id' => 'tweets#favourite'
+
+  # get '/tweets/:id/favourite' => 'tweets#favourite'
+
   get '/:username/retweet/:id' => 'tweets#retweet', :as => 'username_retweet'
 
   get '/:username/reply' => 'tweets#reply', :as => 'username_reply'
-
-  get '/:username/favourite' => 'tweets#favourite', :as => 'username_favourite'
 
   post '/:username/retweet/:id' => 'tweets#retweet'
 
   post '/:username/reply' => 'tweets#reply'
 
-  post '/:username/favourite' => 'tweets#favourite'
+  post '/:username/favourite/:id' => 'tweets#favourite'
+
+  # post '/tweets/:id/favourite' => 'tweets#favourite'
 
   patch '/:username' => 'users#show_user'
 

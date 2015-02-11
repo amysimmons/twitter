@@ -38,6 +38,10 @@ class User < ActiveRecord::Base
     has_many :following, through: :active_relationships, source: :followed
     has_many :followers, through: :passive_relationships, source: :follower
 
+    # Favorite recipes of user
+    has_many :favourite_tweets # just the 'relationships'
+    has_many :favourites, through: :favourite_tweets, source: :tweet # the actual recipes a user favorites
+
     validates :username, :presence => true, :uniqueness => true
     validates :email, :presence => true, :uniqueness => true
 
