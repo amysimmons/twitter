@@ -1,16 +1,9 @@
 
 <% if @current_user.present? %>
 
-    <h1>My dashboard</h1>
-
     <div class="newsfeed">
-        <nav>
-            <ul>
-                <li><%=link_to('News', username_news_path(@current_user.username))%></li>
-                <li><%=link_to('All', username_all_path(@current_user.username))%></li>
-                <li><%=link_to('Mentions', username_mentions_path(@current_user.username))%></li>
-            </ul>
-        </nav>
+
+        <%=render :partial => '/pages/home_sub_nav'%>
     
         <%=render :partial => 'tweets/newsfeed'%>
 

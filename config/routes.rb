@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   delete '/login' => 'session#destroy'
 
 
+  get '/search' => 'users#search', :as => 'search'
+
   get '/:username' => 'users#show_user', :as => 'username'
 
   get '/:username/edit' => 'users#edit_user', :as => 'username_edit'
@@ -45,6 +47,8 @@ Rails.application.routes.draw do
   post '/:username/favourite' => 'tweets#favourite'
 
   patch '/:username' => 'users#show_user'
+
+
 
   # get '/:username/delete' => 'users#show_user'
 

@@ -1,0 +1,30 @@
+    <nav>
+        <ul>
+            <% @user ||= @current_user %>
+            <!-- this does nothing when @user is not nil (as on a profile page), but when it is (as on the Home page) it sets @user to the current user. -->
+
+            <li><%=link_to('Tweets', username_tweets_path(@user.username))%></li>
+            <li><%=link_to('Following', username_following_path(@user.username))%></li>
+            <%= @user.following.count %>
+            <li><%=link_to('Followers', username_followers_path(@user.username))%></li>
+            <%= @user.followers.count %>
+
+            <% if @current_user.following?(@user) %>
+
+            <%= form_for(@current_user.active_relationships.find_by(followed_id: @user.id),
+                         html: { method: :delete }) do |f| %>
+            <%= f.submit "Unfollow", class: "btn" %>
+                    <% end %>
+
+            <%else%>
+
+            <%= form_for(@current_user.active_relationships.build) do |f| %>
+            <div><%= hidden_field_tag :followed_id, @user.id %></div>
+          <%= f.submit "Follow", class: "btn btn-primary" %>
+             <% end %>
+
+        <% end %>
+
+
+        </ul>
+    </nav>

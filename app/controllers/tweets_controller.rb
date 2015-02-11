@@ -58,7 +58,7 @@ class TweetsController < ApplicationController
 
   def all
     # redirect_to root_path
-      @alltweets = Tweet.news
+      @alltweets = Tweet.all
       @tweets = []
       @alltweets.each do |tweet|
           if @current_user.following.include?(tweet.user)
@@ -77,7 +77,6 @@ class TweetsController < ApplicationController
 
   end
 
-
   def reply
     @tweet = "RT: " + tweet.content
     redirect_to username_tweets_path
@@ -95,9 +94,6 @@ class TweetsController < ApplicationController
 
   def favourite
   end
-
-
-
 
   def tweet_params
     params.require(:tweet).permit(:content, :tweet_location, :in_reply_to)

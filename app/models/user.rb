@@ -56,6 +56,10 @@ class User < ActiveRecord::Base
     following.include?(other_user)
     end
 
+    def self.search(query)
+        where("username like ?", "%#{query}%") 
+    end
+
 end
 
 # Since destroying a user should also destroy that user’s relationships, 

@@ -4,6 +4,8 @@ module ApplicationHelper
 
         logo = "<i class='fa fa-twitter'></i>"
 
+  
+
         if @current_user.present?
 
             # if@current_user.is_admin?
