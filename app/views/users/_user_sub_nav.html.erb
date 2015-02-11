@@ -10,7 +10,7 @@
         <li><%=link_to('Followers', username_followers_path(@user.username))%></li>
         <%= @user.followers.count %>
         <li>Favourites</li>
-        <%= @total_favourites %>
+        <%= @total_favourites.to_s %>
 
         <% if @current_user.following?(@user) %>
 

@@ -122,8 +122,7 @@ class TweetsController < ApplicationController
       # redirect_to :back, notice: 'Nothing happened.'
       redirect_to root_path
     end
-
-    raise params.inspect    
+   
   end
 
 

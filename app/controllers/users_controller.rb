@@ -49,6 +49,13 @@ class UsersController < ApplicationController
     @list = Geocoder.search @ip_address
     @city = @list.first.city
 
+    @total = []
+    @user.tweets.each do |tweet|
+      @num_favourites = tweet.favourited_by.count
+      @total << @num_favourites
+    end
+    @total_favourites = @total.inject{|sum,x| sum + x }
+
   end
 
   def update
@@ -84,19 +91,6 @@ class UsersController < ApplicationController
     @user = User.find_by username: params[:username]
     @users = @user.followers
     render 'following_followers'
-  end
-
-  def favourites
-
-    @total = []
-
-    @user.tweets.each do |tweet|
-      @favourited_by_list = tweet.favourited_by
-      @total << @favourited_by_list
-    end
-
-    @total_favourites = @total.flatten.length
-    
   end
 
   private
