@@ -79,8 +79,8 @@ class TweetsController < ApplicationController
   end
 
   def reply
-    @tweet = "RT: " + tweet.content
-    redirect_to username_tweets_path
+    
+    redirect_to new_tweet_path
   end
 
   def retweet
@@ -101,6 +101,7 @@ class TweetsController < ApplicationController
   end
 
   def favourite
+    @favourited_tweet = Tweet.find params[:id]
 
   end
 

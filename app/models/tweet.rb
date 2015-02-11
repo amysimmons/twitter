@@ -2,13 +2,14 @@
 #
 # Table name: tweets
 #
-#  id             :integer          not null, primary key
-#  content        :text
-#  tweet_location :string
-#  user_id        :integer
-#  in_reply_to_id :integer
-#  created_at     :datetime
-#  updated_at     :datetime
+#  id                :integer          not null, primary key
+#  content           :text
+#  tweet_location    :string
+#  user_id           :integer
+#  in_reply_to_id    :integer
+#  created_at        :datetime
+#  updated_at        :datetime
+#  original_tweet_id :integer
 #
 
 class Tweet < ActiveRecord::Base
