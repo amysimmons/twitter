@@ -7,7 +7,6 @@
     <p class="tweet-timestamp"><%=link_to tweet.created_at, tweet_path(tweet.id) %></p>
     <p class="tweet-content"><%=tweet.content%></p>
 
-
     <%= form_tag username_reply_path(@current_user.username) do %>
         <button><i class="fa fa-reply"></i></button>
     <% end %>
@@ -21,6 +20,5 @@
     <% end %>
 
     <%end%>
-
 
 <%end%>

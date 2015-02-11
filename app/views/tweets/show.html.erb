@@ -1,8 +1,6 @@
-<h1>Tweets#show</h1>
 
 
-<p class="tweet-author"><%=@tweet.user_id%></p>
-<p class="tweet-content"><%=@tweet.content%></p>
+<%=render :partial => '/tweets/tweet'%>
 
 <%= button_to 'Delete tweet', @tweet, :method => 'delete', :data => {:confirm => "Are you sure?"}%>
 
