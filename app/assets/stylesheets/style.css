@@ -102,6 +102,20 @@ nav li a:hover {
 }
 
 
+/*tablet*/
+@media screen and (max-width: 1023px){
+
+   
+}
+
+/*mobile*/
+@media screen and (max-width: 767px){
+
+}
+
+
+
+
 
 
 

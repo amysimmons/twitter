@@ -26,14 +26,20 @@
                 <button><i class="fa fa-retweet"></i></button>
             <% end %>
 
-            <%= form_tag username_favourite_path(@current_user.username, tweet) do %>
-                <button><i class="fa fa-star"></i></button>
+        <% if @current_user %>
+
+            <% if @current_user.favourite_ids.include? tweet.id %>
+                <%= form_tag username_favourite_path(@current_user.username, tweet), :method => :put do %>
+                    <%= hidden_field_tag :type, "unfavourite" %>
+                    <button><i class="fa fa-star"></i></button>
+                <% end %>
+            <% else %>
+                <%= form_tag username_favourite_path(@current_user.username, tweet), :method => :put do %>
+                    <%= hidden_field_tag :type, "favourite" %>
+                    <button><i class="fa fa-star"></i></button>
+                <% end %>
             <% end %>
 
-        <% if @current_user %>
-          <%= link_to "favourite",   username_favourite_path(@current_user.username, tweet, type: "favourite"), method: :put %>
-          <%=tweet.favourited_by.count%>
-          <%= link_to "unfavourite", favourite_tweet_path(tweet, type: "unfavourite"), method: :put %>
         <% end %>
 
             
