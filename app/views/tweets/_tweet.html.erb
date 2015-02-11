@@ -1,0 +1,26 @@
+<%@tweets.each do |tweet|%>
+
+    <% if tweet.user %>
+
+    <p class="tweet-author"><%=link_to tweet.user.name, username_path(tweet.user.username) %></p>
+    <p class="tweet-username"><%=link_to tweet.user.username, username_path(tweet.user.username) %></p>
+    <p class="tweet-timestamp"><%=link_to tweet.created_at, tweet_path(tweet.id) %></p>
+    <p class="tweet-content"><%=tweet.content%></p>
+
+
+    <%= form_tag username_reply_path(@current_user.username) do %>
+        <button><i class="fa fa-reply"></i></button>
+    <% end %>
+
+    <%= form_tag username_retweet_path(@current_user.username) do %>
+        <button><i class="fa fa-retweet"></i></button>
+    <% end %>
+
+    <%= form_tag username_favourite_path(@current_user.username) do %>
+        <button><i class="fa fa-star"></i></button>
+    <% end %>
+
+    <%end%>
+
+
+<%end%>

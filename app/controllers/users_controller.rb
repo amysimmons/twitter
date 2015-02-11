@@ -68,7 +68,7 @@ class UsersController < ApplicationController
   end
 
   def tweets
-
+    @user = User.find_by :username => params[:username]
     @tweets = @current_user.tweets
     render 'userfeed'
 

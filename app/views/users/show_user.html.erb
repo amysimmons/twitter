@@ -1,23 +1,7 @@
 <div class="user-profile">
-    <%=image_tag @user.profile_pic_url(:medium), :class => 'profile'%>
-    <h1><%=@user.name.capitalize%></h1>
-        <ul>
-            <li>@<%=@user.username%></li>
-            <li>Tweets: </li>
-            <li>Followers: </li>
-            <li>Following: </li>
-            <li>Organisation: <%=@user.organisation%></li>
-            <li><%=@user.bio%></li>
-            <li>Location: <%=@city%></li>
-            <li>Joined: <%=@user.created_at.strftime('%B, %Y')%></li>
-        </ul>
-            <%if @current_user.id == @user.id %>
-            <li><%=link_to('Edit profile ', username_edit_path(@current_user.username))%></li>
-        <%= button_to 'Delete account', @user, :method => 'delete', :data => {:confirm => "Are you sure?"}%>
-            <%end%>
+    <%=render :partial => 'user_profile'%>
 </div>
 
 <div class="user-feed">
-
     <%=render :partial => 'users/userfeed'%>
 </div>
