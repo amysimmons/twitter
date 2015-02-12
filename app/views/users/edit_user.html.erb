@@ -1,72 +1,51 @@
-
 <div class="home-container">
-    <h1>editing user</h1>
-
-<%= form_for @user, {:url => username_update_path, :action => :update_user } do |f| %>
-
-    <div>
-        <%= f.label :name%>
-        <%= f.text_field :name, :autofocus => true, :required => true%>   
+    <div class="edit-user-container">
+        <h1>Update profile</h1>
+        <%= form_for @user, {:url => username_update_path, :action => :update_user } do |f| %>
+            <div>
+                <%= f.label :name%>
+                <%= f.text_field :name, :autofocus => true, :required => true%>   
+            </div>
+            <div>
+                <%= f.label :email %>
+                <%= f.email_field :email, :required => true %> 
+            </div>
+            <div>
+                <%= f.label :username%>
+                <%= f.text_field :username, :required => true%>
+            </div>
+            
+            <div>
+                <%= f.label :organisation%>
+                <%= f.text_field :organisation %>
+            </div>
+            <div>
+                <%= f.label :user_location%>
+                <%= f.text_field :user_location %>
+            </div>
+            <div>
+                <%= f.label :bio, "Short bio" %>
+                <%= f.text_area :bio %>
+            </div>
+                    <div>
+                <%= f.label :profile_pic, "Profile picture"%>
+                <%= f.file_field :profile_pic %>
+            </div>
+            <div>
+                <%= f.label :is_news, "Journalist/News outlet" %> 
+                <%= f.check_box :is_news %>  
+            </div>
+            <div>
+                <%= f.label :password%>
+                <%= f.password_field :password, :required => true%>
+            </div>
+            <div>   
+                <%= f.label :password_confirmation%>
+                <%= f.password_field :password_confirmation, :required => true %>
+            </div>
+            <div>
+                <%= f.submit "Update profile", :class => 'edit-profile-btn' %>
+            </div>
+        <% end %>
     </div>
-
-    <div>
-        <%= f.label :email %>
-        <%= f.email_field :email, :required => true %> 
-    </div>
-
-    <div>
-        <%= f.label :username%>
-        <%= f.text_field :username, :required => true%>
-    </div>
-
-    <div>
-        <%= f.label :is_news, "Journalist/News outlet" %> 
-        <%= f.check_box :is_news %>  
-    </div>
-
-    <div>
-        <%= f.label :password%>
-        <%= f.password_field :password, :required => true%>
-    </div>
-
-    <div>   
-        <%= f.label :password_confirmation%>
-        <%= f.password_field :password_confirmation, :required => true %>
-    </div>
-
-
-    <div>
-        <%= f.label :organisation%>
-        <%= f.text_field :organisation %>
-    </div>
-
-
-    <div>
-        <%= f.label :user_location%>
-        <%= f.text_field :user_location %>
-    </div>
-
-
-    <div>
-        <%= f.label :bio, "Short bio" %>
-        <%= f.text_area :bio %>
-    </div>
-
-    <p>
-        <%= f.label :profile_pic, "Profile picture"%>
-        <%= f.file_field :profile_pic %>
-    </p>
-
-    <p>
-        <%= f.label :url %>
-        <%= f.text_field :remote_profile_pic_url %>
-    </p>
-
-    <div>
-        <%= f.submit "Update profile" %>
-    </div>
-
-
-<% end %>
-    
-</div>
+</div>    

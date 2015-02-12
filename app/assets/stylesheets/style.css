@@ -199,7 +199,6 @@ nav li {
 }
 
 .home-container {
-    margin-top: 100px;
     width: 100%;
     height:100vh;
     position: relative;
@@ -212,20 +211,21 @@ nav li {
 .newsfeed-container {
     width: 70%;
     background-color: #fff;
-    margin: 100px auto;
-    border-radius: 3px 3px 0 0;
+    margin: 80px auto;
+    border-radius: 9px 9px 0 0;
 }
 
 .userfeed-container {
     width: 70%;
     background-color: #fff;
-    margin: 100px auto;
+    margin: 80px auto;
+    border-radius: 9px 9px 0 0;
 }
 
 .following-followers-container {
     width: 70%;
     background-color: #fff;
-    margin: 100px auto;
+    margin: 80px auto;
 }
 
 /*subnav*/
@@ -299,11 +299,15 @@ nav li {
 
 .tweet-body {
     display: inline-block;
-    width: 79%;
+    margin-left: 30px;
 }
 
 .tweet-author, .tweet-username, .tweet-timestamp, .tweet-content {
     display: inline-block;
+}
+
+.tweet-author, .tweet-username {
+    padding-right: 10px;
 }
 
 .tweet-content, .tweet-buttons {
@@ -382,7 +386,7 @@ nav li {
 
 .new-tweet {
     padding: 10px;
-    margin: 50px auto;
+    margin: 100px auto;
 }
 
 .new-tweet-content {
@@ -431,8 +435,10 @@ nav li {
 
 .user-profile {
     margin: auto;
-    width: 70%;
-    margin-bottom: 100px;
+    /*width: 65%;*/
+    margin-bottom: 30px;
+    padding-top: 30px;
+    margin-left: 30px;
 }
 
 .user-profile .profile-main {
@@ -445,20 +451,33 @@ nav li {
 }
 
 .profile-main {
-    border: 5px solid #fff;
+    border: 6px solid #0084B4;
     border-radius: 15px;
 }
 
 .profile-content {
     display: inline-block;
     margin-left: 20px;
+    vertical-align: top;
+}
+
+div.user-info h1 {
+    margin-top: 0px;
+}
+
+.user-info li {
+    padding: 5px;
 }
 
 .profile-wrapper {
     margin: auto;
 }
 
-.buttons-right > form > input[type="submit"]{
+.buttons-right {
+    vertical-align: top;
+}
+
+.buttons-right > form > input[type="submit"], .edit-btn {
     border-radius: 4px;
     border: 1px solid #ccd6dd;
     width: 100%;
@@ -470,13 +489,86 @@ nav li {
     background-image: linear-gradient(#fff,#f5f8fa);
 }
 
+.edit-btn {
+    align-items: flex-start;
+    text-align: center;
+    cursor: default;
+    color: buttontext;
+    padding: 2px 6px 3px;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    background-color: buttonface;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: #000;
+    padding: 10px;
+    width: 100%;
+    display: block;
+}
+
 .user-info {
     display: inline-block;
 }
 
 .buttons-right {
     display:inline-block;
+    margin-left: 30px;
 }
+
+/*edit user profile*/
+
+
+.edit-user-container {
+    width: 30%;
+    background-color: #fff;
+    margin: auto;
+    border: 1px solid #e1e8ed;
+    border-radius: 6px;
+    padding: 10px;
+    margin-bottom: 80px;
+    padding: 20px;
+    font-size: 20px;
+}
+
+.edit-user-container input[type="text"], .edit-user-container input[type="password"], .edit-user-container textarea, .edit-user-container input[type="email"] {
+    border-radius: 4px;
+    background-color: rgb(250, 255, 189);
+    border: 1px solid #ccd6dd;
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+    margin: 5px auto;
+}
+
+.edit-user-container textarea {
+    height: 200px;
+}
+
+.edit-profile-btn {
+    color: #fff;
+    background-color: #55acee;
+    border: 1px solid #3b88c3;
+    border-radius: 4px;
+    font-size: 20px;
+    font-weight: bold;
+    height: 40px;
+    width: 100%;
+    margin: 5px auto;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.edit-user-container div {
+    padding-top: 5px;
+}
+
+.edit-user-container input[type="file"] {
+
+}
+
 
 /*tablet*/
 @media screen and (max-width: 1023px){

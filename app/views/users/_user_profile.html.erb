@@ -12,7 +12,7 @@
     </div>
     <div class="buttons-right">   
         <%if @current_user.id == @user.id %>
-            <%=link_to('Edit profile ', username_edit_path(@current_user.username))%>
+            <%=link_to('Edit profile ', username_edit_path(@current_user.username), :class => "edit-btn") %>
             <%= button_to 'Delete account', @user, :method => 'delete', :data => {:confirm => "Are you sure?"}%>
         <%end%>
         <%if @current_user.following?(@user)%>
