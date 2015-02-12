@@ -19,7 +19,7 @@
             
             <li><a href='<%=root_path%>' class='nav-link'><i class='fa fa-home'></i>Home</a></li>
 
-      
+  
             <li>
               <a href='<%=username_path(@current_user.username)%>' class='nav-link'><%='@' + @current_user.username%></a>
             </li>
@@ -29,7 +29,7 @@
             <%= form_tag(search_path, :method => "get", id: "search-form") do %>
             <%= text_field_tag :search, params[:search], placeholder: "Search Twitter", :class => "search"%>
 
-              <i class='fa fa-search fa-lg nav-link-search'></i>
+              <i class='fa fa-search nav-link-search'></i>
 
         <%= submit_tag "Search", :name => nil, :class => "search-btn"%>
 

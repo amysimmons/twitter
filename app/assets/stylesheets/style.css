@@ -1,7 +1,12 @@
+html, body {
+    height: 100%;
+}
+
 body {
     /*background-color :blue;*/
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     margin: 0;
+    background-color: #bbdfef;
 }
 
 /*nav*/
@@ -19,10 +24,13 @@ nav {
     right: 0;
     left: 0;
     z-index: 1000;
+    background-color: #fff;
 }
 
 nav ul {
     list-style-type: none;
+    margin-top: 0;
+    padding-top: 35px;
 }
 
 nav li {
@@ -415,6 +423,38 @@ nav li {
     margin: auto;
     text-align: right;
     padding-right: 45px;
+}
+
+/*user profile*/
+
+.user-profile {
+    margin: auto;
+    width: 70%;
+    margin-bottom: 100px;
+}
+
+.user-profile .profile-main {
+    display: inline;
+}
+
+.user-profile ul {
+    list-style-type: none;
+    padding: 0px;
+}
+
+
+.profile-main {
+    border: 5px solid #fff;
+    border-radius: 15px;
+}
+
+.profile-content {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.profile-wrapper {
+    margin: auto;
 }
 
 /*tablet*/
