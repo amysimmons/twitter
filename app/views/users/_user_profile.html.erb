@@ -13,4 +13,20 @@
     <%if @current_user.id == @user.id %>
     <li><%=link_to('Edit profile ', username_edit_path(@current_user.username))%></li>
 <%= button_to 'Delete account', @user, :method => 'delete', :data => {:confirm => "Are you sure?"}%>
+
+        <% if @current_user.following?(@user) %>
+
+        <%= form_for(@current_user.active_relationships.find_by(followed_id: @user.id),
+                     html: { method: :delete }) do |f| %>
+        <%= f.submit "Unfollow", class: "btn" %>
+                <% end %>
+
+        <%else%>
+
+        <%= form_for(@current_user.active_relationships.build) do |f| %>
+        <div><%= hidden_field_tag :followed_id, @user.id %></div>
+      <%= f.submit "Follow", class: "btn btn-primary" %>
+         <% end %>
+
+    <% end %>
     <%end%>

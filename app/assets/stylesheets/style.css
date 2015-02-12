@@ -182,19 +182,24 @@ nav li {
     margin-top: 0;
     padding-top: 100px;
 }
-.newsfeed {
+.newsfeed-container {
     margin-top: 100px;
     width: 70%;
     background-color: #fff;
     margin: auto;
 }
 
+.userfeed-container {
+    margin-top: 100px;
+    width: 70%;
+    background-color: #fff;
+    margin: auto;
+}
+
+
 /*subnav*/
 
-.sub-nav {
-    background-color: rgb(245, 248, 250);
-    border-radius: 3px 3px 0 0;
-}
+
 
 .sub-nav ul {
     margin: 0;
@@ -218,6 +223,11 @@ nav li {
 .sub-nav a:hover {
     color: #0084B4;
     border-bottom: 3px solid #0084B4;
+}
+
+.sub-nav {
+    background-color: rgb(245, 248, 250);
+    border-radius: 3px 3px 0 0;
 }
 
 

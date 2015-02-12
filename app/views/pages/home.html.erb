@@ -1,10 +1,10 @@
 <% if @current_user.present? %>
-    <!-- <div class="home-container"> -->
-        <div class="newsfeed">
+    <div class="home-container">
+        <div class="newsfeed-container">
             <%=render :partial => '/pages/home_sub_nav'%>
             <%=render :partial => 'tweets/newsfeed'%>
         </div>
-    <!-- </div> -->
+    </div>
 <% else %>
     <div class="background-image">
         <div class="welcome-container">
