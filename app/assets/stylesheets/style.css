@@ -232,6 +232,7 @@ nav li {
 
 .sub-nav {
     background-color: rgb(245, 248, 250);
+    text-align: center;
 }
 
 .counts {
@@ -503,7 +504,7 @@ div.user-info h1 {
     vertical-align: top;
 }
 
-.buttons-right .edit-btn {
+.buttons-right input[value="Delete account"], .edit-btn {
     border-radius: 4px;
     border: 1px solid #ccd6dd;
     width: 100%;
