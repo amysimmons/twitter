@@ -67,7 +67,7 @@ class UsersController < ApplicationController
 
   def tweets
     @user = User.find_by :username => params[:username]
-    @tweets = @user.tweets.sort.reverse
+    @tweets = @user.tweets
     render 'userfeed'
 
   end

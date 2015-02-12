@@ -1,4 +1,7 @@
 class TweetsController < ApplicationController
+  
+
+
   def index
     @tweets = Tweet.all
   end
@@ -38,7 +41,7 @@ class TweetsController < ApplicationController
             @tweets << tweet
         end
     end
-    @tweets = @tweets.sort.reverse
+    @tweets = @tweets
     render 'newsfeed'
   end
 
@@ -50,12 +53,12 @@ class TweetsController < ApplicationController
             @tweets << tweet
         end
     end
-    @tweets = @tweets.sort.reverse
+    @tweets = @tweets
     render 'newsfeed'
   end
 
   def mentions
-    @tweets = Tweet.mentions(@current_user).sort.reverse
+    @tweets = Tweet.mentions(@current_user)
     render 'newsfeed'
   end
 

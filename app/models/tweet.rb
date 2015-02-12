@@ -13,6 +13,7 @@
 #
 
 class Tweet < ActiveRecord::Base
+    default_scope {order('tweets.created_at DESC')}
 
     belongs_to :user
     belongs_to :original_tweet, :foreign_key => :original_tweet_id, :class_name => 'Tweet'    
