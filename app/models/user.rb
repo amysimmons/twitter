@@ -64,6 +64,16 @@ class User < ActiveRecord::Base
         where("username ilike ?", "%#{query}%") 
     end
 
+    def favourite_count
+
+        total = []
+        self.tweets.each do |tweet|
+            num_favourites = tweet.favourited_by.count
+            total << num_favourites
+        end
+        total_favourites = total.inject{|sum,x| sum + x }
+    end
+
 end
 
 # Since destroying a user should also destroy that user’s relationships, 

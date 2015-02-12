@@ -13,12 +13,12 @@
         </ul>
     </div>
     <div class="buttons-right">   
-        <%if @current_user.id == @user.id %>
+        <%if @current_user.try(:id) == @user.id %>
             <%=link_to('Edit profile ', username_edit_path(@current_user.username), :class => "edit-btn") %>
             <%= button_to 'Delete account', @user, :method => 'delete', :data => {:confirm => "Are you sure?"}%>
         <%end%>
 
-        <%if @current_user.id != @user.id%>
+        <%if @current_user.try(:id) != @user.id%>
             <%if @current_user.following?(@user)%>
                 <%= form_for(@current_user.active_relationships.find_by(followed_id: @user.id),
                          html: { method: :delete }) do |f| %>

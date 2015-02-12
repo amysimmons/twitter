@@ -47,13 +47,6 @@ class UsersController < ApplicationController
     @ip_address = request.remote_ip
     @list = Geocoder.search @ip_address
     @city = @list.first.city
-
-    @total = []
-    @user.tweets.each do |tweet|
-      @num_favourites = tweet.favourited_by.count
-      @total << @num_favourites
-    end
-    @total_favourites = @total.inject{|sum,x| sum + x }
   end
 
   def update
