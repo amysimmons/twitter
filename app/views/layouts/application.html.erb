@@ -8,41 +8,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<nav>
-    <ul>
-        <%== nav_menu %>
-
-       <!--  <a href='#{root_path}'><i class='fa fa-twitter'></i></a>
-         -->
-        <%if @current_user.present?%>
-
-            
-            <li><a href='<%=root_path%>' class='nav-link'><i class='fa fa-home'></i>Home</a></li>
-
-  
-            <li>
-              <a href='<%=username_path(@current_user.username)%>' class='nav-link'><%='@' + @current_user.username%></a>
-            </li>
-
-            <li><a href='<%=new_tweet_path%>' class='nav-link'><i class='fa fa-pencil-square-o'></i>New Tweet</a></li>
-            
-            <%= form_tag(search_path, :method => "get", id: "search-form") do %>
-            <%= text_field_tag :search, params[:search], placeholder: "Search Twitter", :class => "search"%>
-
-              <i class='fa fa-search nav-link-search'></i>
-
-        <%= submit_tag "Search", :name => nil, :class => "search-btn"%>
-
-            <li><a href='<%=login_path%>' data-method='delete' class='nav-link'><i class='fa fa-sign-out'></i>Sign out</a></li>
-            
-          <% end %>
-
-        <%end%>
-        <!-- #calling the menu helper -->
-    </ul>
+<nav class="main-nav">
+  <ul>
+    <%== nav_menu %>
+    <%if @current_user.present?%>
+      <li><a href='<%=root_path%>' class='nav-link'><i class='fa fa-home'></i>Home</a></li>
+      <li><a href='<%=username_path(@current_user.username)%>' class='nav-link'><%='@' + @current_user.username%></a></li>
+      <li><a href='<%=new_tweet_path%>' class='nav-link'><i class='fa fa-pencil-square-o'></i>New Tweet</a></li>
+      <div class="wrap-right">
+        <%= form_tag(search_path, :method => "get", id: "search-form") do %>
+          <%= text_field_tag :search, params[:search], placeholder: "Search Twitter", :class => "search"%>
+          <i class='fa fa-search nav-link-search'></i>
+          <%= submit_tag "Search", :name => nil, :class => "search-btn"%>
+        <% end %>
+        <li><a href='<%=login_path%>' data-method='delete' class='nav-link'><i class='fa fa-sign-out'></i>Sign out</a></li>
+      </div>
+    <%end%>
+  </ul>
 </nav>
 <div class="container">
-    <%= yield %>
+  <%= yield %>
 </div>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js">
 </body>

@@ -10,7 +10,7 @@ class SessionController < ApplicationController
         redirect_to root_path
     else
         flash[:error] = "Invalid login or password"
-        redirect_to(login_path)
+        redirect_to(root_path)
     end
     # user fills in username and password, do we havea user with this name?
     # if we have a user, if the user has something in it, 

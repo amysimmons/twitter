@@ -3,28 +3,29 @@ html, body {
 }
 
 body {
-    /*background-color :blue;*/
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     margin: 0;
     background-color: #bbdfef;
 }
 
-/*nav*/
+/*main nav*/
 
 .fa-twitter {
     color: #55acee;
-
 }
 
 nav {
     font-size: 35px;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    /*position: fixed;*/
+    border-bottom: 2px solid rgba(0,0,0,0.05);
     top: 0;
     right: 0;
     left: 0;
     z-index: 1000;
     background-color: #fff;
+}
+
+.main-nav {
+    position: fixed;
 }
 
 nav ul {
@@ -56,12 +57,19 @@ nav li {
     border-bottom: 3px solid #0084B4;
 }
 
-/*homepage no user*/
+.wrap-right {
+    position: absolute;
+    right: 45px;
+    top: 35px;
+}
+
+/*homepage not logged*/
 
 .background-image {
     width: 100%;
     height:100%;
     position: relative;
+    margin-top: 100px;
 }
 
 .background-image::after {
@@ -81,6 +89,7 @@ nav li {
 }
 
 .welcome-container {
+    margin-top: 100px;
     width: 838px;
     margin: auto;
     padding-top: 100px;
@@ -89,32 +98,36 @@ nav li {
 
 .welcome {
     color: #fff;
-    width: 49%;
+    width: 47%;
     display: inline-block;
     vertical-align: top;
     z-index :1000;
+    margin-right: 15px;
 }
 
 .welcome-header {
-    font-size: 38px;
+    font-size: 42px;
     margin-top: 0;
 }
 
 .welcome-msg {
-    font-size: 25px;
-    line-height: 31px;
-    font-weight: 300;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 35px;
+    /*font-weight: 300;*/
 }
 
 .login-signup-forms {
     display: inline-block;
     vertical-align: top;
+    margin-left: 15px;
+    width: 47%;
 }
 
 .login {
     background: #fff;
     border: 1px solid #e1e8ed;
-    border-radius: 4px;
+    border-radius: 6px;
     padding: 10px;
 }
 
@@ -122,7 +135,7 @@ nav li {
     border-radius: 4px;
     background-color: rgb(250, 255, 189);
     border: 1px solid #ccd6dd;
-    width: 95%;
+    width: 100%;
     height: 40px;
     font-size: 20px;
     margin: 5px auto;
@@ -136,14 +149,14 @@ nav li {
     font-size: 20px;
     font-weight: bold;
     height: 40px;
-    width: 95%;
+    width: 100%;
     margin: 5px auto;
 }
 
 .signup {
     background: #fff;
     border: 1px solid #e1e8ed;
-    border-radius: 4px;
+    border-radius: 6px;
     padding: 10px;
     margin-top: 20px;
 }
@@ -152,7 +165,7 @@ nav li {
     border-radius: 4px;
     background-color: rgb(250, 255, 189);
     border: 1px solid #ccd6dd;
-    width: 95%;
+    width: 100%;
     height: 40px;
     font-size: 20px;
     margin: 5px auto;
@@ -171,51 +184,55 @@ nav li {
     font-size: 20px;
     font-weight: bold;
     height: 40px;
-    width: 95%;
+    width: 100%;
     margin: 5px auto;
 }
 
-/*user nav*/
+.login > form, .signup > form {
+    padding: 15px;
+}
 
 /*homepage user signed in*/
 
+.container {
+    margin-top:113px;
+}
+
 .home-container {
+    margin-top: 100px;
     width: 100%;
     height:100vh;
     position: relative;
     background-color: rgb(187, 223, 239);
-    background: url('http://a0.twimg.com/images/themes/theme1/bg.png');
     background-repeat: no-repeat;
     background: rgb(187, 223, 239) url('http://a0.twimg.com/images/themes/theme1/bg.png') no-repeat center top;
     margin-top: 0;
     padding-top: 100px;
 }
 .newsfeed-container {
-    margin-top: 100px;
     width: 70%;
     background-color: #fff;
-    margin: auto;
+    margin: 100px auto;
     border-radius: 3px 3px 0 0;
 }
 
 .userfeed-container {
-    margin-top: 100px;
     width: 70%;
     background-color: #fff;
-    margin: auto;
+    margin: 100px auto;
 }
 
 .following-followers-container {
-    margin-top: 100px;
     width: 70%;
     background-color: #fff;
-    margin: auto;
+    margin: 100px auto;
 }
-
 
 /*subnav*/
 
-
+.sub-nav {
+    background-color: rgb(245, 248, 250);
+}
 
 .sub-nav ul {
     margin: 0;
@@ -224,7 +241,6 @@ nav li {
     text-align: center;
     padding-left: 0;
 }
-
 
 .sub-nav a {
     text-decoration: none;
@@ -240,11 +256,6 @@ nav li {
     border-bottom: 3px solid #0084B4;
 }
 
-.sub-nav {
-    background-color: rgb(245, 248, 250);
-}
-
-
 /*searchbar*/
 
 #search-form {
@@ -252,7 +263,6 @@ nav li {
 }
 
 .search {
-
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     width: 100%;
@@ -287,12 +297,6 @@ nav li {
     background-color: rgb(245, 248, 250);
 }
 
-.profile-thumb {
-    display: inline-block;
-    width: 19%;
-    vertical-align: top;
-}
-
 .tweet-body {
     display: inline-block;
     width: 79%;
@@ -302,6 +306,22 @@ nav li {
     display: inline-block;
 }
 
+.tweet-content, .tweet-buttons {
+    padding-left: 50px;
+}
+
+.profile-thumb {
+    display: inline-block;
+    width: 19%;
+    vertical-align: top;
+}
+
+.profile-thumb-pic {
+    border-radius: 6px;
+    margin-top: 20px;
+    vertical-align: bottom;
+}
+
 .tweet-username a, .tweet-timestamp a {
     color: #8899a6;
     /*text-decoration: none;*/
@@ -309,7 +329,6 @@ nav li {
 
 .tweet-author {
     font-weight: bold;
-
 }
 
 .tweet-author a {
@@ -347,18 +366,6 @@ nav li {
     color: #ffac33;
 }
 
-/*single tweet*/
-
-
-/*user profile*/
-
-
-/*show user page*/
-
-
-/*subnav*/
-
-
 /*new tweet*/
 
 .new-tweet {
@@ -368,17 +375,13 @@ nav li {
 }
 
 .new-tweet h1 {
-   /* border-bottom: solid 1px rgba(0, 132, 180, .25)
-    width: 100%;*/
     text-align: center;
     color: #8899a6;
     font-size: 24px;
-
 }
 
 .new-tweet {
     padding: 10px;
-    /*margin: 10px;*/
     margin: 50px auto;
 }
 
@@ -411,7 +414,6 @@ nav li {
     margin-bottom: 10px;
     border: solid 1px rgba(0, 132, 180, .25);
     display: inline-block;
-
 }
 
 .new-tweet-counter {
@@ -442,7 +444,6 @@ nav li {
     padding: 0px;
 }
 
-
 .profile-main {
     border: 5px solid #fff;
     border-radius: 15px;
@@ -455,6 +456,26 @@ nav li {
 
 .profile-wrapper {
     margin: auto;
+}
+
+.buttons-right > form > input[type="submit"]{
+    border-radius: 4px;
+    border: 1px solid #ccd6dd;
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    margin: 5px auto;
+    font-weight: bold;
+    background-color: #f5f8fa;
+    background-image: linear-gradient(#fff,#f5f8fa);
+}
+
+.user-info {
+    display: inline-block;
+}
+
+.buttons-right {
+    display:inline-block;
 }
 
 /*tablet*/

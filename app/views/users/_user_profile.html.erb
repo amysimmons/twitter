@@ -1,35 +1,30 @@
-
 <%=image_tag @user.profile_pic_url(:medium), :class => 'profile-main'%>
 <div class="profile-content">
-    <h1><%=@user.name.capitalize%></h1>
-<ul>
-    <li class="profile-username">@<%=@user.username%></li>
-    <li class="profile-organisation">Organisation: <%=@user.organisation%></li>
-    <li class="profile-bio"><%=@user.bio%></li>
-    <li class="profile-location"><i class="fa fa-globe"></i> Location: <%=@city%></li>
-    <li class="profile-joined"><i class="fa fa-clock-o"></i> Joined: <%=@user.created_at.strftime('%B, %Y')%></li>
-
-    <%if @current_user.id == @user.id %>
-    <li><%=link_to('Edit profile ', username_edit_path(@current_user.username))%></li>
-</ul>
-<%= button_to 'Delete account', @user, :method => 'delete', :data => {:confirm => "Are you sure?"}%>
-
-        <% if @current_user.following?(@user) %>
-
-        <%= form_for(@current_user.active_relationships.find_by(followed_id: @user.id),
+    <div class="user-info">
+        <h1><%=@user.name.capitalize%></h1>
+        <ul>
+            <li class="profile-username">@<%=@user.username%></li>
+            <li class="profile-organisation">Organisation: <%=@user.organisation%></li>
+            <li class="profile-bio"><%=@user.bio%></li>
+            <li class="profile-location"><i class="fa fa-globe"></i> Location: <%=@city%></li>
+            <li class="profile-joined"><i class="fa fa-clock-o"></i> Joined: <%=@user.created_at.strftime('%B, %Y')%></li>
+        </ul>
+    </div>
+    <div class="buttons-right">   
+        <%if @current_user.id == @user.id %>
+            <%=link_to('Edit profile ', username_edit_path(@current_user.username))%>
+            <%= button_to 'Delete account', @user, :method => 'delete', :data => {:confirm => "Are you sure?"}%>
+        <%end%>
+        <%if @current_user.following?(@user)%>
+            <%= form_for(@current_user.active_relationships.find_by(followed_id: @user.id),
                      html: { method: :delete }) do |f| %>
-        <%= f.submit "Unfollow", class: "btn" %>
-                <% end %>
-
+                    <%= f.submit "Unfollow", class: "btn" %>
+            <% end %>
         <%else%>
-
-        <%= form_for(@current_user.active_relationships.build) do |f| %>
-        <div><%= hidden_field_tag :followed_id, @user.id %></div>
-      <%= f.submit "Follow", class: "btn btn-primary" %>
-         <% end %>
-
-    <% end %>
-    <%end%>
-
+            <%= form_for(@current_user.active_relationships.build) do |f| %>
+                <div><%= hidden_field_tag :followed_id, @user.id %></div>
+                <%= f.submit "Follow", class: "btn btn-primary" %>
+            <% end %>
+        <% end %>
+    </div> 
 </div>
-

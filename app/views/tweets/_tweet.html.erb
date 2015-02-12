@@ -2,16 +2,14 @@
     <% if tweet.user %>
      <div class="tweet">       
         <%if tweet.original_tweet_id && original_tweet = Tweet.find_by(:id => tweet.original_tweet_id) %>
-             <div class="profile-thumb">
-                <%if tweet.user.profile_pic %>
-                <%=image_tag tweet.user.profile_pic_url(:tweet), :class => 'profile-thumb-pic'%>
-                <%end%>
-            </div> 
              <div class="tweet-body">
                 <div class="tweeet-line-0">
                     <p class="retweeted-by">Retweeted by <%=@current_user.username%></p>
                 </div>
                  <div class="tweet-line-1">
+                           <%if tweet.user.profile_pic %>
+                <%=image_tag tweet.user.profile_pic_url(:tweet), :class => 'profile-thumb-pic'%>
+                <%end%>
                      <p class="tweet-author"><%=link_to original_tweet.user.name, username_path(original_tweet.user.username) %></p>
                     <p class="tweet-username"><%=link_to original_tweet.user.username, username_path(original_tweet.user.username) %></p>
                     <p class="tweet-timestamp"><%=link_to original_tweet.user.created_at.strftime('%B %d, %Y, %I:%M %P'), tweet_path(tweet.id) %></p>
@@ -21,13 +19,12 @@
                 </div>
              </div>  
         <%else%>
-            <div class="profile-thumb"> 
-                <%if tweet.user.profile_pic %>
-                <%=image_tag tweet.user.profile_pic_url(:tweet), :class => 'profile-thumb-pic'%>
-                <%end%>
-            </div>
+
             <div class="tweet-body">
                 <div class="tweet-line-1">
+                           <%if tweet.user.profile_pic %>
+                <%=image_tag tweet.user.profile_pic_url(:tweet), :class => 'profile-thumb-pic'%>
+                <%end%>
                     <p class="tweet-author"><%=link_to tweet.user.name, username_path(tweet.user.username) %></p>
                 <p class="tweet-username"><%=link_to tweet.user.username, username_path(tweet.user.username) %></p>
                 <p class="tweet-timestamp"><%=link_to tweet.created_at.strftime('%B %d, %Y, %I:%M %P'), tweet_path(tweet.id) %></p>
