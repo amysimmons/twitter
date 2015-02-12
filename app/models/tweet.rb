@@ -43,7 +43,6 @@ class Tweet < ActiveRecord::Base
 
 end
 
-
 # when i have no self in is_news that method refers to a single tweet
 #     but when i have self in the method name, that method refers to the class
 #     which encapsulates all tweets

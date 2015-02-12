@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'
 
-
   get '/search' => 'users#search', :as => 'search'
 
   get '/:username' => 'users#show_user', :as => 'username'
@@ -42,8 +41,6 @@ Rails.application.routes.draw do
 
   put '/:username/favourite/:id' => 'tweets#favourite'
 
-  # get '/tweets/:id/favourite' => 'tweets#favourite'
-
   get '/:username/retweet/:id' => 'tweets#retweet', :as => 'username_retweet'
 
   get '/:username/reply' => 'tweets#reply', :as => 'username_reply'
@@ -54,13 +51,6 @@ Rails.application.routes.draw do
 
   post '/:username/favourite/:id' => 'tweets#favourite'
 
-  # post '/tweets/:id/favourite' => 'tweets#favourite'
-
   patch '/:username' => 'users#show_user'
-
-
-
-  # get '/:username/delete' => 'users#show_user'
-
 
 end

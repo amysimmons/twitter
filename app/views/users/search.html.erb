@@ -1,10 +1,11 @@
-<h1>Search</h1>
-
-<%@users.each do |user|%>
-        <%=link_to user.username, username_path(user.username)%>
-
-<%end %>
-
-<%if @users.length == 0%>
-    <p>Sorry, we can't find any users by that name.</p>
-<%end%>
+<div class="home-container">
+    <div class="search-results-container">
+        <h1>Search results</h1>
+        <%@users.each do |user|%>
+            <%=link_to '@' + user.username, username_path(user.username), :class => "search-result"%>
+        <%end %>
+        <%if @users.length == 0%>
+            <p>Sorry, we can't find any users by that name.</p>
+        <%end%>
+    </div>
+</div>

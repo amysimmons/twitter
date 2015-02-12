@@ -388,6 +388,10 @@ nav li {
     color: #5c913b;
 }
 
+.retweeted-by {
+    color: #5c913b;
+}
+
 .favourite:hover, .unfavourite:hover {
     color: #ffac33;
 }
@@ -499,7 +503,7 @@ div.user-info h1 {
     vertical-align: top;
 }
 
-.buttons-right > form > input[type="submit"], .edit-btn {
+.buttons-right .edit-btn {
     border-radius: 4px;
     border: 1px solid #ccd6dd;
     width: 100%;
@@ -530,6 +534,30 @@ div.user-info h1 {
     width: 100%;
     display: block;
 }
+
+.buttons-right > .unfollow-btn {
+    color: #fff;
+    border-radius: 4px;
+    border: 1px solid #ccd6dd;
+    height: 40px;
+    font-size: 16px;
+    margin: 5px auto;
+    font-weight: bold;
+    background-color: rgb(173, 0, 18);
+}
+
+.buttons-right > .follow-btn {
+    color: #fff;
+    border-radius: 4px;
+    border: 1px solid #ccd6dd;
+    height: 40px;
+    font-size: 16px;
+    margin: 5px auto;
+    font-weight: bold;
+    background-color: #0084B4;
+}
+
+
 
 .user-info {
     display: inline-block;
@@ -591,23 +619,103 @@ div.user-info h1 {
 
 }
 
+/*search results*/
+
+.search-results-container {
+    width: 30%;
+    background-color: #fff;
+    margin: auto;
+    border: 1px solid #e1e8ed;
+    border-radius: 6px;
+    padding: 10px;
+    margin-bottom: 80px;
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.search-result {
+    text-decoration: none;
+    display: block;
+    margin-bottom: 20px;
+    color: #66757f;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.search-result:hover {
+    color: #0084B4;
+}
+
+/*single tweet*/
+
+.delete-tweet-btn {
+    border-radius: 4px;
+    border: 1px solid #ccd6dd;
+    width: 20%;
+    height: 40px;
+    font-size: 16px;
+    margin: 5px auto;
+    font-weight: bold;
+    background-color: #f5f8fa;
+    background-image: linear-gradient(#fff,#f5f8fa);
+    margin-left: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/*following-followers page*/
+
+.following-follower {
+    font-size: 20px;
+    border-bottom: 1px solid #e1e8ed;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+
+}
+
+.following-follower img {
+    display: block;
+    border: 6px solid #fff;
+    border-radius: 15px;
+}
+
+.following-follower a {
+    text-decoration:none;
+    color: #8899a6;
+}
+
+.following-follower:hover {
+    background-color: rgb(245, 248, 250);
+}
+
+.follow-btn {
+    color: #fff;
+    border-radius: 4px;
+    border: 1px solid #ccd6dd;
+    height: 40px;
+    font-size: 16px;
+    margin: 5px auto;
+    font-weight: bold;
+    background-color: #0084B4;
+}
+
+.unfollow-btn {
+    color: #fff;
+    border-radius: 4px;
+    border: 1px solid #ccd6dd;
+    height: 40px;
+    font-size: 16px;
+    margin: 5px auto;
+    font-weight: bold;
+    background-color: rgb(173, 0, 18);
+}
 
 /*tablet*/
 @media screen and (max-width: 1023px){
-
-   
 }
 
 /*mobile*/
 @media screen and (max-width: 767px){
-
 }
-
-
-
-
-
-
-
-
-

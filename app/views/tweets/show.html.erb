@@ -2,7 +2,7 @@
     <div class="userfeed-container">
       <div class="tweet">
            <%=render :partial => '/tweets/tweet'%>
-            <%= button_to 'Delete tweet', @tweet, :method => 'delete', :data => {:confirm => "Are you sure?"}%>
+            <%=button_to 'Delete tweet', @tweet, :method => 'delete', :data => {:confirm => "Are you sure?"}, :class => "delete-tweet-btn"%>
         </div>
     </div>
 </div>

@@ -1,4 +1,4 @@
-<%if @user.profile_pic.present?%>
+<%if @user.profile_pic.present? %>
     <%=image_tag @user.profile_pic_url(:medium), :class => 'profile-main'%>
 <%end%>
 <div class="profile-content">
@@ -17,16 +17,19 @@
             <%=link_to('Edit profile ', username_edit_path(@current_user.username), :class => "edit-btn") %>
             <%= button_to 'Delete account', @user, :method => 'delete', :data => {:confirm => "Are you sure?"}%>
         <%end%>
-        <%if @current_user.following?(@user)%>
-            <%= form_for(@current_user.active_relationships.find_by(followed_id: @user.id),
-                     html: { method: :delete }) do |f| %>
-                    <%= f.submit "Unfollow", class: "btn" %>
+
+        <%if @current_user.id != @user.id%>
+            <%if @current_user.following?(@user)%>
+                <%= form_for(@current_user.active_relationships.find_by(followed_id: @user.id),
+                         html: { method: :delete }) do |f| %>
+                        <%= f.submit "Unfollow", class: "btn unfollow-btn" %>
+                <% end %>
+            <%else%>
+                <%= form_for(@current_user.active_relationships.build) do |f| %>
+                    <div><%= hidden_field_tag :followed_id, @user.id %></div>
+                    <%= f.submit "Follow", class: "btn btn-primary follow-btn" %>
+                <% end %>
             <% end %>
-        <%else%>
-            <%= form_for(@current_user.active_relationships.build) do |f| %>
-                <div><%= hidden_field_tag :followed_id, @user.id %></div>
-                <%= f.submit "Follow", class: "btn btn-primary" %>
-            <% end %>
-        <% end %>
+        <%end%>
     </div> 
 </div>

@@ -1,19 +1,21 @@
 <div class="following-followers">
-
     <% @users.each do |user| %>
-    
-        <div>
+        <div class="following-follower">
             <% if user.profile_pic %>
                 <%= image_tag user.profile_pic_url(:medium), :class => 'profile' %>
             <%end%>
+            <%=link_to '@' + user.username, username_path(user.username)%>
+            <%if @current_user.following?(user)%>
+                <%= form_for(@current_user.active_relationships.find_by(followed_id: user.id),
+                         html: { method: :delete }) do |f| %>
+                        <%= f.submit "Unfollow", class: "btn unfollow-btn" %>
+                <% end %>
+            <%else%>
+                <%= form_for(@current_user.active_relationships.build) do |f| %>
+                    <div><%= hidden_field_tag :followed_id, user.id %></div>
+                    <%= f.submit "Follow", class: "btn btn-primary follow-btn" %>
+                <% end %>
+            <% end %>
         </div>
-        <div>
-            <%=user.name.capitalize%>
-        </div>
-        <div>
-           <%=user.username%> 
-        </div>
-
     <% end %>
-
 </div>

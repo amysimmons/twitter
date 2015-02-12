@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
-
   end
 
   def search
@@ -55,7 +54,6 @@ class UsersController < ApplicationController
       @total << @num_favourites
     end
     @total_favourites = @total.inject{|sum,x| sum + x }
-
   end
 
   def update
@@ -76,7 +74,7 @@ class UsersController < ApplicationController
 
   def tweets
     @user = User.find_by :username => params[:username]
-    @tweets = @user.tweets
+    @tweets = @user.tweets.sort.reverse
     render 'userfeed'
 
   end
@@ -97,7 +95,6 @@ class UsersController < ApplicationController
     def user_params
         params.require(:user).permit(:name, :email, :username, :bio, :organisation, :user_location, :profile_pic, :is_news, :remote_profile_pic_url, :is_admin, :password, :password_confirmation)
     end
-
     def check_if_admin
         redirect_to(root_path) unless @current_user.present? && @current_user.is_admin?
     end
