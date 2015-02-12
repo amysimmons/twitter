@@ -1,3 +1,5 @@
+<div class="home-container">
+    
 <div class="new-tweet">
 
     <h1>Compose new Tweet</h1>
@@ -10,14 +12,18 @@
             <%= f.text_field :content, :autofocus => true, :required => true, :class => "new-tweet-content", :maxlength => 140%>   
         </div>
 
+
         <div class="new-tweet-counter-button">
-            <div class="new-tweet-counter"></div>
+            <div class="new-tweet-counter">140 characters remaining</div>
             <%= f.submit "Tweet", :class => "new-tweet-button"%>
         </div>
 
     <% end %>
 
 </div>
+    
+</div>
+
 
 
 <script>

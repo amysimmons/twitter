@@ -187,9 +187,17 @@ nav li {
     width: 70%;
     background-color: #fff;
     margin: auto;
+    border-radius: 3px 3px 0 0;
 }
 
 .userfeed-container {
+    margin-top: 100px;
+    width: 70%;
+    background-color: #fff;
+    margin: auto;
+}
+
+.following-followers-container {
     margin-top: 100px;
     width: 70%;
     background-color: #fff;
@@ -227,7 +235,6 @@ nav li {
 
 .sub-nav {
     background-color: rgb(245, 248, 250);
-    border-radius: 3px 3px 0 0;
 }
 
 
@@ -345,7 +352,7 @@ nav li {
 /*subnav*/
 
 
-
+/*new tweet*/
 
 .new-tweet {
     width: 70%;
@@ -407,8 +414,9 @@ nav li {
 
 .new-tweet-counter-button {
     margin: auto;
+    text-align: right;
+    padding-right: 45px;
 }
-
 
 /*tablet*/
 @media screen and (max-width: 1023px){
