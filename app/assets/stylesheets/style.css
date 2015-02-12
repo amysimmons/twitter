@@ -1,7 +1,10 @@
 body {
     /*background-color :blue;*/
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    margin: 0;
 }
+
+/*nav*/
 
 .fa-twitter {
     color: #55acee;
@@ -38,6 +41,145 @@ nav li a {
 nav li a:hover {
     color: #0084B4;
 }
+
+/*homepage no user*/
+
+.background-image {
+    width: 100%;
+    height:100%;
+    position: relative;
+}
+
+.background-image::after {
+  content: "";
+  background: url('http://api.news.com.au/content/1.0/newscomau/images/1227158446441?format=jpg');
+  opacity: 0.7;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1000; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover  
+}
+
+.welcome-container {
+    width: 838px;
+    margin: auto;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.welcome {
+    color: #fff;
+    width: 49%;
+    display: inline-block;
+    vertical-align: top;
+    z-index :1000;
+}
+
+.welcome-header {
+    font-size: 38px;
+    margin-top: 0;
+}
+
+.welcome-msg {
+    font-size: 25px;
+    line-height: 31px;
+    font-weight: 300;
+}
+
+.login-signup-forms {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.login {
+    background: #fff;
+    border: 1px solid #e1e8ed;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.login input[type="text"], .login input[type="password"] {
+    border-radius: 4px;
+    background-color: rgb(250, 255, 189);
+    border: 1px solid #ccd6dd;
+    width: 95%;
+    height: 40px;
+    font-size: 20px;
+    margin: 5px auto;
+}
+
+.login-btn {
+    color: #fff;
+    background-color: #55acee;
+    border: 1px solid #3b88c3;
+    border-radius: 4px;
+    font-size: 20px;
+    font-weight: bold;
+    height: 40px;
+    width: 95%;
+    margin: 5px auto;
+}
+
+.signup {
+    background: #fff;
+    border: 1px solid #e1e8ed;
+    border-radius: 4px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.signup input[type="text"], .signup input[type="password"], .signup input[type="email"] {
+    border-radius: 4px;
+    background-color: rgb(250, 255, 189);
+    border: 1px solid #ccd6dd;
+    width: 95%;
+    height: 40px;
+    font-size: 20px;
+    margin: 5px auto;
+}
+
+.sign-up-span {
+    color: #66757f;
+    font-weight: 200;
+}
+
+.signup-btn {
+    color: #000;
+    background-color: #ffac33;
+    border: 1px solid #3b88c3;
+    border-radius: 4px;
+    font-size: 20px;
+    font-weight: bold;
+    height: 40px;
+    width: 95%;
+    margin: 5px auto;
+}
+
+
+
+
+/*user newsfeed page*/
+
+
+/*single tweet*/
+
+
+/*user profile*/
+
+
+/*show user page*/
+
+
+/*subnav*/
+
+
+
 
 .new-tweet {
     width: 70%;

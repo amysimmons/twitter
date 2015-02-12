@@ -1,12 +1,10 @@
 <h2><%flash[:error] if flash[:error].present?%></h2> 
 
-<h1>Log in</h1>
-
 <%= form_tag login_path do %>
 
     <div>
         <%= label_tag :username %>
-        <%= text_field_tag :username, nil, :autofocus => true %>
+        <%= text_field_tag :username, nil, :autofocus => true, :placeholder => 'Username' %>
     </div>
 
     <div>
@@ -15,7 +13,7 @@
     </div>
 
     <div>
-        <%= submit_tag "Log in" %>
+        <%= submit_tag "Log in", :class => "login-btn" %>
     </div>
 
 <% end %>

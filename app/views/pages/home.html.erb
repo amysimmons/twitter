@@ -1,23 +1,23 @@
 <% if @current_user.present? %>
-
     <div class="newsfeed">
-
         <%=render :partial => '/pages/home_sub_nav'%>
-    
         <%=render :partial => 'tweets/newsfeed'%>
-
     </div>
-
 <% else %>
-
-    <h1>Welcome to Twitter</h1>
-
-    <div clas="login">
-        <%=render :partial => '/session/new_session'%>
+    <div class="background-image">
+        <div class="welcome-container">
+            <div class="welcome">
+                <h1 class="welcome-header">Welcome to Twitter</h1>
+                <p class="welcome-msg">Connect with your friends — and other fascinating people. Get in-the-moment updates on the things that interest you. And watch events unfold, in real time, from every angle.</p>
+            </div>
+            <div class="login-signup-forms">
+                <div class="login">
+                    <%=render :partial => '/session/new_session'%>
+                </div>
+                <div class="signup">
+                    <%=render :partial => 'users/new_user_form'%>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="signup">
-        <%=render :partial => 'users/new_user_form'%>
-    </div>
- 
 <% end %>
