@@ -40,6 +40,10 @@ class ProfilePicUploader < CarrierWave::Uploader::Base
     process :resize_to_fit => [32, 32]
   end
 
+  version :tweet do
+    process :resize_to_fit => [50, 50]
+  end
+
   version :medium do
     process :resize_to_fit => [200, 200]
   end

@@ -25,21 +25,24 @@ nav ul {
     list-style-type: none;
 
 }
-nav li {
+.nav-link {
     display: inline-block;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-nav li a {
+    margin-left: 15px;
+    margin-right: 15px;
     text-decoration: none;
     color: #66757f;
     font-size: 20px;
     font-weight: 400;
 }
 
-nav li a:hover {
+.nav-link-search {
+    font-size: 18px;
+    color: #66757f;
+}
+
+.nav-link:hover {
     color: #0084B4;
+    border-bottom: 3px solid #0084B4;
 }
 
 /*homepage no user*/
@@ -161,11 +164,108 @@ nav li a:hover {
     margin: 5px auto;
 }
 
+/*user nav*/
 
 
+#search-form {
+    display: inline-block;
+}
+
+.search {
+
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: 32px;
+    padding: 5px 27px 6px 12px;
+    font-size: 16px;
+    line-height: 1;
+    color: #292f33;
+    background-color: #f5f8fa;
+    border: 1px solid #e1e8ed;
+    border-radius: 21px;
+    transition: all .2s ease-in-out;
+    width: 200px;
+}
+
+.search-btn {
+    display: none;
+}
 
 /*user newsfeed page*/
 
+.tweet {
+    font-size: 20px;
+    border-bottom: 1px solid #e1e8ed
+}
+
+.tweet:hover {
+    background-color: rgb(245, 248, 250);
+}
+
+.tweet:hover button{
+    background-color: rgb(245, 248, 250);
+}
+
+.profile-thumb {
+    display: inline-block;
+    width: 19%;
+    vertical-align: top;
+}
+
+.tweet-body {
+    display: inline-block;
+    width: 79%;
+}
+
+.tweet-author, .tweet-username, .tweet-timestamp, .tweet-content {
+    display: inline-block;
+}
+
+.tweet-username a, .tweet-timestamp a {
+    color: #8899a6;
+    /*text-decoration: none;*/
+}
+
+.tweet-author {
+    font-weight: bold;
+
+}
+
+.tweet-author a {
+    text-decoration: none;
+    color: #000;
+}
+
+.tweet-author a:hover {
+    color: #0084B4;
+}
+
+.tweet-buttons form {
+    display: inline-block;
+}
+
+.reply, .retweet, .favourite, .unfavourite {
+    display: inline-block;
+    position: relative;
+    color: #ccd6dd;
+    font-size: 16px;
+    background-color: #fff;
+    border: 0px solid #fff;
+    font-size: 30px;
+}
+
+.reply:hover {
+    color: #0094B4;
+}
+
+.retweet:hover {
+    color: #5c913b;
+}
+
+.favourite:hover, .unfavourite:hover {
+    color: #ffac33;
+}
 
 /*single tweet*/
 

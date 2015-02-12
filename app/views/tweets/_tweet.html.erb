@@ -1,53 +1,69 @@
 <%@tweets.each do |tweet|%>
-
     <% if tweet.user %>
-
-        <%if tweet.original_tweet_id %>
-
-            <p>Retweeted by <%=@current_user.username%></p>
-
-            <p class="tweet-author"><%=link_to tweet.original_tweet.user.name, username_path(tweet.original_tweet.user.username) %></p>
-            <p class="tweet-username"><%=link_to tweet.original_tweet.user.username, username_path(tweet.original_tweet.user.username) %></p>
-            <p class="tweet-timestamp"><%=link_to tweet.original_tweet.user.created_at, tweet_path(tweet.id) %></p>
-            <p class="tweet-content"><%=tweet.original_tweet.content%></p>
-
+     <div class="tweet">       
+        <%if tweet.original_tweet_id && original_tweet = Tweet.find_by(:id => tweet.original_tweet_id) %>
+             <div class="profile-thumb">
+                <%if tweet.user.profile_pic %>
+                <%=image_tag tweet.user.profile_pic_url(:tweet), :class => 'profile-thumb-pic'%>
+                <%end%>
+            </div> 
+             <div class="tweet-body">
+                <div class="tweeet-line-0">
+                    <p class="retweeted-by">Retweeted by <%=@current_user.username%></p>
+                </div>
+                 <div class="tweet-line-1">
+                     <p class="tweet-author"><%=link_to original_tweet.user.name, username_path(original_tweet.user.username) %></p>
+                    <p class="tweet-username"><%=link_to original_tweet.user.username, username_path(original_tweet.user.username) %></p>
+                    <p class="tweet-timestamp"><%=link_to original_tweet.user.created_at.strftime('%B %d, %Y, %I:%M %P'), tweet_path(tweet.id) %></p>
+                 </div>
+                <div class="tweet-line-2">
+                    <p class="tweet-content"><%=original_tweet.content%></p>
+                </div>
+             </div>  
         <%else%>
+            <div class="profile-thumb"> 
+                <%if tweet.user.profile_pic %>
+                <%=image_tag tweet.user.profile_pic_url(:tweet), :class => 'profile-thumb-pic'%>
+                <%end%>
+            </div>
+            <div class="tweet-body">
+                <div class="tweet-line-1">
+                    <p class="tweet-author"><%=link_to tweet.user.name, username_path(tweet.user.username) %></p>
+                <p class="tweet-username"><%=link_to tweet.user.username, username_path(tweet.user.username) %></p>
+                <p class="tweet-timestamp"><%=link_to tweet.created_at.strftime('%B %d, %Y, %I:%M %P'), tweet_path(tweet.id) %></p>
+                </div>
+                <div class="tweet-line-2">
+                    <p class="tweet-content"><%=tweet.content%></p>
+                </div>
 
-            <p class="tweet-author"><%=link_to tweet.user.name, username_path(tweet.user.username) %></p>
-            <p class="tweet-username"><%=link_to tweet.user.username, username_path(tweet.user.username) %></p>
-            <p class="tweet-timestamp"><%=link_to tweet.created_at, tweet_path(tweet.id) %></p>
-            <p class="tweet-content"><%=tweet.content%></p>
+                <div class="tweet-buttons">
+                    <%= form_tag username_reply_path(@current_user.username) do %>
+                        <button class="reply"><i class="fa fa-reply"></i></button>
+                    <% end %>
+                    <%= form_tag username_retweet_path(@current_user.username, tweet) do %>
+                        <button class="retweet"><i class="fa fa-retweet"></i></button>
+                    <% end %>
 
-            <%= form_tag username_reply_path(@current_user.username) do %>
-                <button><i class="fa fa-reply"></i></button>
-            <% end %>
+                    <% if @current_user %>
+                        <% if @current_user.favourite_ids.include? tweet.id %>
+                            <%= form_tag username_favourite_path(@current_user.username, tweet), :method => :put do %>
+                                    <%= hidden_field_tag :type, "unfavourite" %>
+                                    <button class="unfavourite"><i class="fa fa-star"></i></button>
+                                <% end %>
+                        <% else %>
+                            <%= form_tag username_favourite_path(@current_user.username, tweet), :method => :put do %>
+                                <%= hidden_field_tag :type, "favourite" %>
+                                <button class="favourite"><i class="fa fa-star"></i></button>
+                        <% end %>
+                    <% end %>
 
-            <%= form_tag username_retweet_path(@current_user.username, tweet) do %>
-                <button><i class="fa fa-retweet"></i></button>
-            <% end %>
+                    <% end %>
+                </div>
 
-        <% if @current_user %>
-
-            <% if @current_user.favourite_ids.include? tweet.id %>
-                <%= form_tag username_favourite_path(@current_user.username, tweet), :method => :put do %>
-                    <%= hidden_field_tag :type, "unfavourite" %>
-                    <button><i class="fa fa-star"></i></button>
-                <% end %>
-            <% else %>
-                <%= form_tag username_favourite_path(@current_user.username, tweet), :method => :put do %>
-                    <%= hidden_field_tag :type, "favourite" %>
-                    <button><i class="fa fa-star"></i></button>
-                <% end %>
-            <% end %>
-
-        <% end %>
-
+            </div>
             
-
-
-
+        
         <%end%>
-
+    </div>
     <%end%>
-
 <%end%>
