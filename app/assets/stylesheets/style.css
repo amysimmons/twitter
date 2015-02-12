@@ -234,13 +234,35 @@ nav li {
     background-color: rgb(245, 248, 250);
 }
 
-.sub-nav ul {
+.counts {
+    text-align: center;
+}
+
+.sub-nav .count {
+    display: inline-block;
+}
+
+.count-link {
+    text-align: center;
+}
+
+
+.sub-nav .counts {
     margin: 0;
     padding-top: 20px;
     padding-bottom: 20px;
     text-align: center;
     padding-left: 0;
 }
+
+.count-num {
+    text-align: center;
+    font-size: 22px;
+    padding-top: 3px;
+    font-weight: 600;
+    color: #0084B4;
+}
+
 
 .sub-nav a {
     text-decoration: none;

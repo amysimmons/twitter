@@ -1,16 +1,39 @@
 <nav class="sub-nav">
-    <ul>
-        <% @user ||= @current_user %>
-        <!-- this does nothing when @user is not nil (as on a profile page), but when it is (as on the Home page) it sets @user to the current user. -->
+    <% @user ||= @current_user %>
+    <!-- this does nothing when @user is not nil (as on a profile page), but when it is (as on the Home page) it sets @user to the current user. -->
+    <div class="counts">
+        <div class="count">
+            <div class="count-link">
+                <%=link_to('Tweets', username_tweets_path(@user.username))%>
+            </div>
+            <div class="count-num">
+                <%= @user.tweets.count %>
+            </div>
+        </div>
+        <div class="count">
+            <div class="count-link">
+                <%=link_to('Following', username_following_path(@user.username))%>
+            </div>
+            <div class="count-num">
+                <%= @user.following.count %>
+            </div>
+        </div>
+        <div class="count">
+            <div class="count-link">
+                <%=link_to('Followers', username_followers_path(@user.username))%>
+            </div>
+            <div class="count-num">
+                <%= @user.followers.count %>
+            </div>
+        </div>
 
-        <li><%=link_to('Tweets', username_tweets_path(@user.username))%></li>
-        <%= @user.tweets.count %>
-        <li><%=link_to('Following', username_following_path(@user.username))%></li>
-        <%= @user.following.count %>
-        <li><%=link_to('Followers', username_followers_path(@user.username))%></li>
-        <%= @user.followers.count %>
-        <li><%=link_to('Favourites')%></li>
-        <%= @total_favourites.to_s %>
-
-    </ul>
+        <div class="count">
+            <div class="count-link">
+                <%=link_to('Favourites')%>
+            </div>
+            <div class="count-num">
+                <%= @total_favourites.to_s %>
+            </div>
+        </div>
+    </div> 
 </nav>

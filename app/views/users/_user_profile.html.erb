@@ -1,4 +1,6 @@
-<%=image_tag @user.profile_pic_url(:medium), :class => 'profile-main'%>
+<%if @user.profile_pic.present?%>
+    <%=image_tag @user.profile_pic_url(:medium), :class => 'profile-main'%>
+<%end%>
 <div class="profile-content">
     <div class="user-info">
         <h1><%=@user.name.capitalize%></h1>
