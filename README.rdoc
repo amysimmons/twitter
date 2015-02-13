@@ -1,28 +1,63 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+What I solved:
 
-Things you may want to cover:
+- A Twitter where the news is separated from the noise
 
-* Ruby version
+Demo:
 
-* System dependencies
+- Sign up
+- New tweet
+- Find user
+- Follow (a news and not news user)
+- Unfollow
+- Retweet
+- Favourite
+- Update profile
+- Sign out
 
-* Configuration
+Routes:
 
-* Database creation
+- My routes have the username in them, rather than id (which created some problems for me!)
 
-* Database initialization
+Schema:
 
-* How to run the test suite
+- Users table
+- Tweets table
+- Relationships table (self join, where the user has a relationship with itself)
+- Favourites table (join between tweet_id and user_id)
 
-* Services (job queues, cache servers, search engines, etc.)
+Models:
 
-* Deployment instructions
+- A user has many tweets
 
-* ...
+- A tweet belongs to a user 
 
+- A user has_many relationships, and since relationships involve two users a relationship belongs_to both a follower and a followed user. If Amy is following Julia but not vice versa, Amy has an active relationship with Julia and Julia has a passive relationship with Amy.
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+- FavouriteTweet is a join table which is establishing a many to many relationship between Tweet and User.
+
+Sore bits:
+
+- No verification on whether a user is a journalist or news outlet
+- Two word username sign up issue 
+
+Cool beans:
+
+- New tweet character countdown 
+
+Where next:
+
+- Make it responsive
+- Allow hashtags
+- Set up notifications
+- If a username is mentioned in a tweet link to the user
+
+Thanks:
+
+- To Joel Turnbull and DT from General Assembly for their incredible guidance and endless bug fixing.
+
+- To this link for guidance on the favourites model: http://stackoverflow.com/questions/13240109/implement-add-to-favorites-in-rails-3
+
+- To this link for guidance on the follower/following model: https://www.railstutorial.org/book/following_users
+
