@@ -6,8 +6,8 @@
         <h1><%=@user.name.capitalize%></h1>
         <ul>
             <li class="profile-username">@<%=@user.username%></li>
-            <li class="profile-organisation">Organisation: <%=@user.organisation%></li>
-            <li class="profile-bio"><%=@user.bio%></li>
+            <li class="profile-organisation"><i class="fa fa-building"></i> Organisation: <%=@user.organisation%></li>
+            <li class="profile-bio"><i class="fa fa-cloud"></i> Bio: <%=@user.bio%></li>
             <li class="profile-location"><i class="fa fa-globe"></i> Location: <%=@city%></li>
             <li class="profile-joined"><i class="fa fa-clock-o"></i> Joined: <%=@user.created_at.strftime('%B, %Y')%></li>
         </ul>
